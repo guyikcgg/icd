@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "h = \"hello\"",
+    "created" : 1500982290196.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "44732766",
+    "id" : "6CDFC675",
+    "lastKnownWriteTime" : 1500999292,
+    "last_content_update" : 1500999292726,
+    "path" : "/home/cristian10/workspace/master/icd/final/src/analysis/analysis.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
