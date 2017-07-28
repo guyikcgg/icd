@@ -176,7 +176,7 @@ abalone
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Tabular
@@ -1020,6 +1020,26 @@ tae
 Regresión sobre el conjunto de datos 
 \emph on
 abalone
+\end_layout
+
+\begin_layout Subsection
+Hipóteis de trabajo
+\end_layout
+
+\begin_layout Standard
+Pueden existir caracteres sexuales secundarios, que supongan diferencias
+ significativas de las características fisiológicas disponibles en función
+ del sexo.
+ Estos caracteres sólo serían visibles llegada la madurez sexual del animal.
+\end_layout
+
+\begin_layout Standard
+Se espera que con el paso de los años, el peso y el tamaño del animal sea
+ cada vez mayor, al menos hasta encontrar un punto de inflexión que revierta
+ esta tendencia.
+ No obstante, el tamaño y peso totales pueden variar según las condiciones
+ ambientales, tales como la disponibilidad de alimento, temperatura, hostilidad
+ del entorno, etc.
 \end_layout
 
 \begin_layout Section
