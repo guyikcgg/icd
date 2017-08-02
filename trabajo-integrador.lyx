@@ -117,7 +117,8 @@ Los conjuntos de datos asignados por los profesores son los siguientes.
 \begin_layout Description
 abalone se trata de un conjunto de datos que presenta distintas variables
  fisiológicas del abulón, un marisco muy preciado en la cocina oriental,
- junto con su edad
+ junto con el número de anillos que presenta, del cuál puede deducirse directame
+nte su edad
 \begin_inset space ~
 \end_inset
 
@@ -166,10 +167,49 @@ key "keel-tae,uci-tae,alcala2011keel"
 
 \begin_layout Standard
 A continuación se presenta un estudio más pormenorizado de los citados datasets.
+ El código fuente utilizado para obtener los datos aquí presentados puede
+ consultarse en
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:appendix-analysis"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
 abalone
+\end_layout
+
+\begin_layout Standard
+El conjunto de datos abalone corresponde a un dataframe con una dimensión
+ de 4176 filas y 9 columnas.
+ Esto corresponde a 4176 muestras en las que se han medido 9 propiedades.
+ Estas propiedades o campos se presentan en
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:abalone-description"
+
+\end_inset
+
+, y en ninguna aparecen valores omitidos (
+\emph on
+missing values
+\emph default
+).
+ Como puede observarse en la tabla, todos los datos son de tipo numérico,
+ salvo el sexo, que es una variable categórica que sólo toma tres valores.
+ El tipo de datos de la variable de salida es un número entero, que se tratará
+ como una variable continua a la hora de realizar la regresión.
 \end_layout
 
 \begin_layout Standard
@@ -180,10 +220,12 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="2">
+<lyxtabular version="3" rows="10" columns="4">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="middle" width="4.5cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -206,7 +248,7 @@ Attribute
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -227,6 +269,24 @@ Domain
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Data type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -234,23 +294,13 @@ Domain
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\family typewriter
 Sex
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -271,6 +321,34 @@ Sex
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+factor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 = M
+\end_layout
+
+\begin_layout Plain Layout
+2 = F
+\end_layout
+
+\begin_layout Plain Layout
+3 = I (infant) 
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -278,23 +356,13 @@ Sex
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\family typewriter
 Length
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -315,6 +383,26 @@ Length
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+numeric
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Longest shell measurement (mm)
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -322,23 +410,13 @@ Length
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\family typewriter
 Diameter
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -359,6 +437,26 @@ Diameter
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+numeric
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Diameter perpendicular to length (mm)
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -366,23 +464,13 @@ Diameter
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\family typewriter
 Height
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -403,9 +491,18 @@ Height
 
 \end_inset
 </cell>
-</row>
-<row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+numeric
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -421,12 +518,25 @@ Height
 \uwave off
 \noun off
 \color none
+Height with meat in shell (mm)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
 Whole_weight
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -447,9 +557,18 @@ Whole_weight
 
 \end_inset
 </cell>
-</row>
-<row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+numeric
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -465,12 +584,25 @@ Whole_weight
 \uwave off
 \noun off
 \color none
+Weight of the whole abalone (grams)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
 Shucked_weight
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -491,9 +623,18 @@ Shucked_weight
 
 \end_inset
 </cell>
-</row>
-<row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+numeric
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -509,12 +650,25 @@ Shucked_weight
 \uwave off
 \noun off
 \color none
+Weight of meat (grams)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
 Viscera_weight
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -535,9 +689,18 @@ Viscera_weight
 
 \end_inset
 </cell>
-</row>
-<row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+numeric
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -553,12 +716,25 @@ Viscera_weight
 \uwave off
 \noun off
 \color none
+Gut weight after bleeding (grams)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
 Shell_weight
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -579,9 +755,18 @@ Shell_weight
 
 \end_inset
 </cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+numeric
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -597,12 +782,25 @@ Shell_weight
 \uwave off
 \noun off
 \color none
+Shell weight after being dried (grams)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
 Rings
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -623,6 +821,38 @@ Rings
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+integer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
++1.5 gives the age in years 
+\end_layout
+
+\end_inset
+</cell>
 </row>
 </lyxtabular>
 
@@ -635,10 +865,27 @@ Rings
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:abalone-description"
+
+\end_inset
+
 Descripción de los atributos presentes en 
 \emph on
 abalone
 \emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "alcala2011keel,Lichman:2013"
+
+\end_inset
+
 .
 \end_layout
 
@@ -646,6 +893,189 @@ abalone
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="8">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Correlation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Length 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Diameter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Height
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Whole_weight
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Shucked_weight
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Viscera_weight
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Shell_weight
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Rings
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.557
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.575
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.557
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.540
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.421
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.504
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.627
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -669,17 +1099,42 @@ Evaluation)
 \end_layout
 
 \begin_layout Standard
+El conjunto de datos tae corresponde a un dataframe con una dimensión de
+ 150 filas y 6 columnas que no presentan valores omitidos.
+ Esto corresponde a 150 muestras en las que se han medido 6 propiedades
+ tal y como se muestra en
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:tae-description"
+
+\end_inset
+
+.
+ Como puede observarse en la tabla, todas las variables son categóricas,
+ salvo el tamaño de la clase, que es un entero.
+ El tipo de datos de la variable de salida es también categórico, pudiendo
+ tomar tres valores distintos, por lo que tendremos que realizar una clasificaci
+ón con tres clases.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="2">
+<lyxtabular version="3" rows="7" columns="4">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="middle" width="4.5cm">
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -702,7 +1157,7 @@ Attribute
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -723,6 +1178,24 @@ Domain
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Data type
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Description
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -730,23 +1203,13 @@ Domain
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\family typewriter
 Native
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -767,6 +1230,38 @@ Native
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+factor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+whether of not the TA is
+\begin_inset Newline newline
+\end_inset
+
+ a native English speaker: 
+\begin_inset Newline newline
+\end_inset
+
+1 = English speaker
+\begin_inset Newline newline
+\end_inset
+
+2 = non-English speaker
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -774,23 +1269,13 @@ Native
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\family typewriter
 Instructor
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -811,6 +1296,30 @@ Instructor
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+factor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+course instructor
+\begin_inset Newline newline
+\end_inset
+
+(25 categories)
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -818,23 +1327,13 @@ Instructor
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\family typewriter
 Course
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -855,6 +1354,26 @@ Course
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+factor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26 categories
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -862,23 +1381,13 @@ Course
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\family typewriter
 Semester
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -899,6 +1408,34 @@ Semester
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+factor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+summer or regular semester: 
+\begin_inset Newline newline
+\end_inset
+
+1 = Summer
+\begin_inset Newline newline
+\end_inset
+
+2 = Regular
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
@@ -906,23 +1443,13 @@ Semester
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\family typewriter
 Size
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -943,6 +1470,30 @@ Size
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+integer
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+class size 
+\begin_inset Newline newline
+\end_inset
+
+(numerical)
+\end_layout
+
+\end_inset
+</cell>
 </row>
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
@@ -950,23 +1501,13 @@ Size
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\family typewriter
 Class
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -987,6 +1528,38 @@ Class
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+factor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TA score:
+\begin_inset Newline newline
+\end_inset
+
+1 = low
+\begin_inset Newline newline
+\end_inset
+
+2 = medium
+\begin_inset Newline newline
+\end_inset
+
+3 = high
+\end_layout
+
+\end_inset
+</cell>
 </row>
 </lyxtabular>
 
@@ -999,10 +1572,27 @@ Class
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tae-description"
+
+\end_inset
+
 Descripción de los atributos presentes en 
 \emph on
 tae
 \emph default
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "alcala2011keel,Lichman:2013"
+
+\end_inset
+
 .
 \end_layout
 
@@ -1022,24 +1612,99 @@ Regresión sobre el conjunto de datos
 abalone
 \end_layout
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Hablar del compromiso sesgo/varianza (bias-variance trade-off).
+\end_layout
+
+\begin_layout Plain Layout
+* Selecci'on del modelo
+\end_layout
+
+\begin_layout Plain Layout
+* Validaci'on
+\end_layout
+
+\begin_layout Plain Layout
+* Sobreajuste (Overfitting)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Hipóteis de trabajo
 \end_layout
 
 \begin_layout Standard
+Para comenzar el estudio, se plantean las siguientes hipótesis de trabajo.
+\end_layout
+
+\begin_layout Enumerate
 Pueden existir caracteres sexuales secundarios, que supongan diferencias
  significativas de las características fisiológicas disponibles en función
  del sexo.
  Estos caracteres sólo serían visibles llegada la madurez sexual del animal.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Enumerate
 Se espera que con el paso de los años, el peso y el tamaño del animal sea
  cada vez mayor, al menos hasta encontrar un punto de inflexión que revierta
  esta tendencia.
  No obstante, el tamaño y peso totales pueden variar según las condiciones
  ambientales, tales como la disponibilidad de alimento, temperatura, hostilidad
  del entorno, etc.
+\end_layout
+
+\begin_layout Subsection
+Comprobación de las hipótesis
+\end_layout
+
+\begin_layout Standard
+Para comprobar las hipótesis de trabajo de partida, se han comparado gráficas
+ y se han realizado tests estadísticos que ratificaran los patrones observados.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename src/analysis/Rplot03.eps
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Histograma de las distintas características en función del sexo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1053,13 +1718,29 @@ Conclusión
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:appendix-analysis"
+
+\end_inset
+
 Apéndice 1 - Código fuente: Análisis de datos
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "src/analysis/analysis.R"
+filename "src/analysis/abalone.R"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "src/analysis/tae.R"
 
 \end_inset
 
@@ -1067,6 +1748,12 @@ filename "src/analysis/analysis.R"
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:appendix-regression"
+
+\end_inset
+
 Apéndice 2 - Código fuente: Regresión
 \end_layout
 
@@ -1081,6 +1768,12 @@ filename "src/regression/regression.R"
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:appendix-classification"
+
+\end_inset
+
 Apéndice 3 - Código fuente: Clasificación
 \end_layout
 
