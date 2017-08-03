@@ -105,10 +105,19 @@ cor(abalone2)
 # the output variable is Class, thus we have to 
 # classify the data by this category
 
-ggplot(abalone, aes(x = Sex)) + geom_bar(stat = "count")
+ggplot(abalone, aes(x = Sex, fill = Sex)) + geom_bar(stat = "count")
 
-meltData = melt.data.frame(data = abalone[,2:8])
-ggplot(meltData, aes(factor(variable), value)) + geom_boxplot() + coord_flip()
+meltData1 = melt.data.frame(data = abalone[,2:4])
+meltData1$Measure = "length (mm)"
+ggplot(meltData1, aes(factor(variable), value)) + xlab("") + ylab("length (mm)") + geom_boxplot() + coord_flip()
+
+meltData2 = melt.data.frame(data = abalone[,5:8])
+meltData2$Measure = "weight (grams)"
+ggplot(meltData2, aes(factor(variable), value)) + xlab("") + ylab("weight (grams)") + geom_boxplot() + coord_flip()
+
+meltData = rbind(meltData1, meltData2)
+ggplot(meltData, aes(factor(variable), value)) + xlab("") + ylab("") + geom_boxplot() + coord_flip() + facet_wrap( ~ Measure, ncol = 1, scales = "free")
+
 
 ggplot(abalone, aes(Sex, Rings)) + geom_boxplot()
 

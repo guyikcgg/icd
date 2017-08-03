@@ -63,15 +63,17 @@ lapply(tae, class)
 colSums(is.na(tae))
 
 # Get the statistical measurements (numeric variables)
-min       (tae$Size)        # Minimum
-quantile  (tae$Size, 0.25)  # 1st Quartile
-median    (tae$Size)        # Median
-mean      (tae$Size)        # Mean
-quantile  (tae$Size, 0.75)  # 3rd Quartile
-max       (tae$Size)        # Max
+attach(tae)
+min       (Size)        # Minimum
+quantile  (Size, 0.25)  # 1st Quartile
+median    (Size)        # Median
+mean      (Size)        # Mean
+quantile  (Size, 0.75)  # 3rd Quartile
+max       (Size)        # Max
 
-var       (tae$Size)        # Variane
-sd        (tae$Size)        # Standard deviation
+var       (Size)        # Variane
+sd        (Size)        # Standard deviation
+detach(tae)
 
 # Get summarized information
 str(tae)      # Structure

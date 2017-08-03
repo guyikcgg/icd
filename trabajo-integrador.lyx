@@ -187,8 +187,11 @@ abalone
 \end_layout
 
 \begin_layout Standard
-El conjunto de datos abalone corresponde a un dataframe con una dimensión
- de 4176 filas y 9 columnas.
+El conjunto de datos 
+\emph on
+abalone
+\emph default
+ corresponde a un dataframe con una dimensión de 4176 filas y 9 columnas.
  Esto corresponde a 4176 muestras en las que se han medido 9 propiedades.
  Estas propiedades o campos se presentan en
 \begin_inset space ~
@@ -201,7 +204,7 @@ reference "tab:abalone-description"
 
 \end_inset
 
-, y en ninguna aparecen valores omitidos (
+, no apareciendo en ninguna valores omitidos (
 \emph on
 missing values
 \emph default
@@ -900,10 +903,37 @@ key "alcala2011keel,Lichman:2013"
 \end_layout
 
 \begin_layout Standard
+Las medidas estadísticas de las distintas variables pueden observarse en
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:statistics-abalone-numeric"
+
+\end_inset
+
+ y en
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:statistics-abalone-categorical"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2627,7 +2657,11 @@ name "tab:statistics-abalone-numeric"
 
 \end_inset
 
-Medidas estadísticas sobre las variables cuantitativas.
+Medidas estadísticas sobre las variables cuantitativas de 
+\emph on
+abalone
+\emph default
+.
 \end_layout
 
 \end_inset
@@ -2645,9 +2679,65 @@ Medidas estadísticas sobre las variables cuantitativas.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename src/analysis/Rplot12.eps
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Distribución de las variables cuantitativas en 
+\emph on
+abalone
+\emph default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "49col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
 status open
 
 \begin_layout Plain Layout
@@ -2860,6 +2950,42 @@ I
 
 \end_layout
 
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "b"
+use_parbox 0
+use_makebox 0
+width "49col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename src/analysis/Rplot08.eps
+	width 100col%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
@@ -2870,15 +2996,15 @@ name "tab:statistics-abalone-categorical"
 
 \end_inset
 
-Tabla de frecuencias de las variables categóricas.
+Tabla de frecuencias de las variables categóricas de 
+\emph on
+abalone
+\emph default
+, junto con su diagrama de barras.
 \end_layout
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -3092,7 +3218,50 @@ name "tab:Correlación-abalone"
 
 \end_inset
 
-Correlación entre las variables de entrada numéricas y la variable de salida.
+Correlación entre las variables de entrada numéricas y la variable de salida
+ en 
+\emph on
+abalone
+\emph default
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename src/analysis/Rplot07.png
+	lyxscale 10
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Nube de puntos de las variables de entrada con respecto a la salida en 
+\emph on
+abalone
+\emph default
+.
 \end_layout
 
 \end_inset
@@ -3122,8 +3291,12 @@ Evaluation)
 \end_layout
 
 \begin_layout Standard
-El conjunto de datos tae corresponde a un dataframe con una dimensión de
- 150 filas y 6 columnas que no presentan valores omitidos.
+El conjunto de datos 
+\emph on
+tae
+\emph default
+ corresponde a un dataframe con una dimensión de 150 filas y 6 columnas
+ que no presentan valores omitidos.
  Esto corresponde a 150 muestras en las que se han medido 6 propiedades
  tal y como se muestra en
 \begin_inset space ~
@@ -3713,7 +3886,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Histograma de las distintas características en función del sexo.
+Histogramas de las distintas características con respecto al sexo.
 \end_layout
 
 \end_inset
