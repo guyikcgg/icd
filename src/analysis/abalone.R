@@ -37,7 +37,7 @@ abalone$Sex = factor(
   abalone$Sex, 
   levels = c(1, 2, 3), 
   labels = c("M", "F", "I")
-  )
+)
 
 
 # Get the data type and dimension
@@ -50,18 +50,44 @@ lapply(abalone, class)
 # Check if there are missing values
 colSums(is.na(abalone))
 
-# Get the statistical measurements (numeric variables)
+# Get the statistical measurements (numeric vars)
+# and save them into a.s.m 
+# (abalone.statistical.measurements matrix)
 abalone2 = subset(abalone, select = -Sex)
 
-sapply(abalone2, min)             # Minimum
-sapply(abalone2, quantile, 0.25)  # 1st Quartile
-sapply(abalone2, median)          # Median
-sapply(abalone2, mean)            # Mean
-sapply(abalone2, quantile, 0.75)  # 3rd Quartile
-sapply(abalone2, max)             # Max
+a.s.m = matrix(
+  nrow = ncol(abalone2),
+  ncol = 8
+)
+colnames(a.s.m) = c(
+  "Min.", 
+  "1st Qu.", 
+  "Median", 
+  "Mean", 
+  "3rd Qu.", 
+  "Max.", 
+  "Var.", 
+  "SD"
+)
+rownames(a.s.m) = names(abalone2)
 
-sapply(abalone2, var)             # Variane
-sapply(abalone2, sd)              # Standard deviation
+a.s.m[,1] = 
+  sapply(abalone2, min)             # Minimum
+a.s.m[,2] =
+  sapply(abalone2, quantile, 0.25)  # 1st Quart.
+a.s.m[,3] =
+  sapply(abalone2, median)          # Median
+a.s.m[,4] =
+  sapply(abalone2, mean)            # Mean
+a.s.m[,5] =
+  sapply(abalone2, quantile, 0.75)  # 3rd Quart.
+a.s.m[,6] =
+  sapply(abalone2, max)             # Max
+
+a.s.m[,7] =
+  sapply(abalone2, var)             # Variance
+a.s.m[,8] =
+  sapply(abalone2, sd)              # Std. dev.
 
 # Get summarized information
 str(abalone)      # Structure
