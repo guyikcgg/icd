@@ -50,8 +50,8 @@ lapply(abalone, class)
 # Check if there are missing values
 colSums(is.na(abalone))
 
-# Get the statistical measurements (numeric vars)
-# and save them into a.s.m 
+# Get the statistical measurements 
+# (numeric variables) and save them into a.s.m
 # (abalone.statistical.measurements matrix)
 abalone2 = subset(abalone, select = -Sex)
 
@@ -83,11 +83,16 @@ a.s.m[,5] =
   sapply(abalone2, quantile, 0.75)  # 3rd Quart.
 a.s.m[,6] =
   sapply(abalone2, max)             # Max
-
 a.s.m[,7] =
   sapply(abalone2, var)             # Variance
 a.s.m[,8] =
   sapply(abalone2, sd)              # Std. dev.
+
+# Get the statistical measurements 
+# (categorical variables)
+a.s.m2 = as.data.frame( table(abalone$Sex) )
+names(a.s.m2)[1] = "Sex"
+a.s.m2$relFreq = a.s.m2$Freq/nrow(abalone)
 
 # Get summarized information
 str(abalone)      # Structure
