@@ -39,7 +39,7 @@
 \pdf_backref false
 \pdf_pdfusetitle true
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -63,6 +63,10 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -71,7 +75,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\listings_params "language=R,backgroundcolor={\color[rgb]{0.96,0.96,0.96}},basicstyle={\ttfamily},keywordstyle={\color[rgb]{0,0,0.8}\ttfamily},stringstyle={\color[rgb]{0.01,0.42,0.03}\ttfamily},commentstyle={\color[rgb]{0.3,0.53,0.42}\ttfamily},numbers=left,numberstyle={\tiny \color{black}},numbersep=9pt,literate={{á}{{\'a}}1{é}{{\'e}}1{í}{{\'i}}1{ó}{{\'o}}1{ú}{{\'u}}1{Á}{{\'A}}1{É}{{\'E}}1{Í}{{\'I}}1{Ó}{{\'O}}1{Ú}{{\'U}}1}"
+\listings_params "language=R,backgroundcolor={\color[rgb]{0.96,0.96,0.96}},basicstyle={\ttfamily\small},keywordstyle={\color[rgb]{0,0,0.8}\ttfamily},stringstyle={\color[rgb]{0.01,0.42,0.03}\ttfamily},commentstyle={\color[rgb]{0.3,0.53,0.42}\ttfamily},numbers=left,numberstyle={\tiny \color{black}},numbersep=9pt,literate={{á}{{\'a}}1{é}{{\'e}}1{í}{{\'i}}1{ó}{{\'o}}1{ú}{{\'u}}1{Á}{{\'A}}1{É}{{\'E}}1{Í}{{\'I}}1{Ó}{{\'O}}1{Ú}{{\'U}}1}"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -2682,11 +2686,11 @@ abalone
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename src/analysis/Rplot12.eps
+	filename src/analysis/img/Rplot12.eps
 	width 100col%
 
 \end_inset
@@ -2973,7 +2977,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename src/analysis/Rplot08.eps
+	filename src/analysis/img/Rplot08.eps
 	width 100col%
 
 \end_inset
@@ -3017,9 +3021,10 @@ abalone
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="2">
 <features tabularvalignment="middle">
@@ -3244,7 +3249,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename src/analysis/Rplot07.png
+	filename src/analysis/img/Rplot07.png
 	lyxscale 10
 	width 100text%
 
@@ -3874,7 +3879,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename src/analysis/Rplot03.eps
+	filename src/analysis/img/Rplot03.eps
 	width 100col%
 
 \end_inset
