@@ -9,34 +9,60 @@
 source("../regression/build-workspace.R")
 
 
+# Get simple linear regression models
+simple.linear.fit = list()
+for (i in 1:(length(abalone)-1)) {
+  simple.linear.fit[[i]] = lm(abalone$Rings~abalone[,i])  
+  names(simple.linear.fit)[i] = names(abalone)[i]
+}
+
+summary(simple.linear.fit$Shucked_weight)
+
+
+MSE = matrix(nrow = 8, ncol = 2)
+colnames(MSE) = c("train", "test")
+rownames(MSE) = names(abalone)[1:8]
+for (tt in colnames(MSE)) {
+  for (i in rownames(MSE)) {
+    MSE[i, tt] = mean(sapply(1:5, run_lm_fold, model = Rings~eval(parse(text = i)), tt = tt))
+  }
+}
+
+mean(sapply(1:5, run_lm_fold, model = Rings~Diameter))
+
+
 # Analysis of preprocessing
 
 ## Correlation
-abalone3 = abalone# subset(abalone, select = -Sex)
-abalone3$Rings2 = abalone3$Rings^2
-abalone3$Rings3 = abalone3$Rings^3
-abalone3$Rings.2 = abalone3$Rings^(1/2)
-abalone3$Rings.3 = abalone3$Rings^(1/3)
-abalone3$Rings.log = log(abalone3$Rings)
-abalone3$Shucked_weight2 = (abalone3$Shucked_weight)^2
-abalone3$Shucked_weight3 = (abalone3$Shucked_weight)^3
-abalone3$Shucked_weight.2 = sqrt(abalone3$Shucked_weight)
-abalone3$Shucked_weight.3 = (abalone3$Shucked_weight)^(1/3)
-abalone3$Shucked_weight.4 = (abalone3$Shucked_weight)^(1/4)
-abalone3$Shucked_weight.8 = (abalone3$Shucked_weight)^(1/8)
-abalone3$Shucked_weight.log = log(abalone3$Shucked_weight)
+add.non.linearities = function(df) {
+  df$Shucked_weight2    = (df$Shucked_weight)^2
+  df$Shucked_weight3    = (df$Shucked_weight)^3
+  df$Shucked_weight.2   = (df$Shucked_weight)^(1/2)
+  df$Shucked_weight.3   = (df$Shucked_weight)^(1/3)
+  df$Shucked_weight.4   = (df$Shucked_weight)^(1/4)
+  df$Shucked_weight.8   = (df$Shucked_weight)^(1/8)
+  df$Shucked_weight.log = log(df$Shucked_weight)
+  
+  return(df)
+}
 
-Y.vars = grepl("Rings", names(abalone3))
-X.vars = grepl("Shucked_weight", names(abalone3))
+abalone = add.non.linearities(abalone)
+abalone.tra = lapply(abalone.tra, add.non.linearities)
+abalone.tst = lapply(abalone.tst, add.non.linearities)
+
+
+# Calculate correlations
+Y.vars = grepl("Rings", names(abalone))
+X.vars = grepl("Shucked_weight", names(abalone))
 cor.Shucked_weight = cor(
-  subset(abalone3, select = X.vars),
-  subset(abalone3, select = Y.vars)
+  subset(abalone, select = X.vars),
+  subset(abalone, select = Y.vars)
 )
 
 # Plot
 myData = melt.data.frame(
-  abalone3[abalone3$Height<0.3,],
-  id.vars=c("Sex", names(abalone3)[Y.vars])
+  abalone[abalone$Height<0.3,],
+  id.vars=c("Sex", names(abalone)[Y.vars])
 )
 
 selected.fields = c(
@@ -60,8 +86,8 @@ names(selected.fields) = c(
   "Shucked_weight.log"
 )
 
-ggplot(subset(myData, variable %in% names(selected.fields)), aes(y = value, x = Rings)) + geom_jitter(width = 0.8, alpha = 0.12) + facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) + ylab("")
-ggplot(subset(myData, variable %in% names(selected.fields)), aes(y = value, x = Rings.log)) + geom_jitter(width = 0.8, alpha = 0.12) + facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) + ylab("") + xlab("log(Rings)")
+#ggplot(subset(myData, variable %in% names(selected.fields)), aes(y = value, x = Rings)) + geom_jitter(width = 0.8, alpha = 0.12) + facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) + ylab("")
+#ggplot(subset(myData, variable %in% names(selected.fields)), aes(y = value, x = Rings.log)) + geom_jitter(width = 0.8, alpha = 0.12) + facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) + ylab("") + xlab("log(Rings)")
 
 # Logarithmical growth makes greater correlation. Cube makes more beautiful plot...
 
@@ -83,14 +109,12 @@ ggplot(subset(myData, variable %in% names(selected.fields)), aes(y = value, x = 
 #lmMSEtest = mean( sapply(1:5, run_lm_fold, "abalone", model = Y~sqrt(X6), tt = "test") )
 #lmMSEtest = mean( sapply(1:5, run_lm_fold, "abalone", model = Y~(X6^1/3), tt = "test") )
 
-mean( sapply(1:5, run_lm_fold.abalone, model = Rings~Shucked_weight.8, Y = "Rings", tt = "test") )
-summary(lm(Rings.log~Shucked_weight.log, abalone3))
+mean( sapply(1:5, run_lm_fold, model = Rings~., tt = "test") )
+summary(lm(Rings.log~Shucked_weight.log, abalone))
 
 myFit = lm(Rings~Shucked_weight, abalone)
 
 summary(myFit)
-
-#summary(lm(log(Rings)~log(Shucked_weight), abalone))
 
 
 ggplot(subset(myData, variable %in% "Shucked_weight"), aes(y = log(value), x = Rings)) +
