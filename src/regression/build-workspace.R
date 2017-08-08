@@ -72,11 +72,11 @@ for (i in 1:5) {
 # FUNCTIONS
 
 # Run k-fold cross validation on LM fit
-run_lm_fold = function(i, tra, tst, model = Rings~.,  tt = "test") {
+run_lm_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.,  tt = "test") {
   x_tra = tra[[i]]
   x_tst = tst[[i]]
   
-  if (tt == "train") {
+  if (tt != "test") {
     test = x_tra
   } else {
     test = x_tst
@@ -91,11 +91,11 @@ run_lm_fold = function(i, tra, tst, model = Rings~.,  tt = "test") {
   sum(abs(test[,output.var]-yprime)^2)/length(yprime)
 }
 
-run_knn_fold = function(i, tra, tst, model = Rings~.,  tt = "test") {
+run_knn_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.,  tt = "test") {
   x_tra = tra[[i]]
   x_tst = tst[[i]]
   
-  if (tt == "train") {
+  if (tt != "test") {
     test = x_tra
   } else {
     test = x_tst
@@ -109,4 +109,6 @@ run_knn_fold = function(i, tra, tst, model = Rings~.,  tt = "test") {
   yprime = predict(knn.fit, test)
   sum(abs(test[,output.var]-yprime)^2)/length(yprime)
 }
+
+rm(i, j, filename, x)
 
