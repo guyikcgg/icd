@@ -16,7 +16,14 @@ for (i in 1:(length(abalone)-1)) {
   names(simple.linear.fit)[i] = names(abalone)[i]
 }
 
+summary(simple.linear.fit$Sex)
+summary(simple.linear.fit$Length)
+summary(simple.linear.fit$Diameter)
+summary(simple.linear.fit$Height)
+summary(simple.linear.fit$Whole_weight)
 summary(simple.linear.fit$Shucked_weight)
+summary(simple.linear.fit$Viscera_weight)
+summary(simple.linear.fit$Shell_weight)
 
 
 MSE = matrix(nrow = 8, ncol = 2)
