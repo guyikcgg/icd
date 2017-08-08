@@ -4747,8 +4747,10 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="5">
+<lyxtabular version="3" rows="8" columns="7">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -4768,7 +4770,19 @@ Regresor
 \begin_inset Text
 
 \begin_layout Plain Layout
-Modelo para tra1
+Linear model (
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $\hat{Y}(X)$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+)
 \end_layout
 
 \end_inset
@@ -4777,7 +4791,10 @@ Modelo para tra1
 \begin_inset Text
 
 \begin_layout Plain Layout
-Medidas de bondad tra1
+\begin_inset Formula $MSE$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4786,7 +4803,31 @@ Medidas de bondad tra1
 \begin_inset Text
 
 \begin_layout Plain Layout
-meanTRA
+\begin_inset Formula $R^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+p-value
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\overline{MSE}_{train}$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4797,7 +4838,10 @@ meanTRA
 \begin_layout Plain Layout
 
 \series bold
-meanTST
+\begin_inset Formula $\mathbf{\overline{MSE}_{test}}$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4820,6 +4864,9 @@ Length
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $2.10+14.94\,X$
+\end_inset
+
 
 \end_layout
 
@@ -4829,7 +4876,25 @@ Length
 \begin_inset Text
 
 \begin_layout Plain Layout
+7.17
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3098
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -4839,6 +4904,18 @@ Length
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8.39
 \end_layout
 
 \end_inset
@@ -4848,6 +4925,18 @@ Length
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8.40
 \end_layout
 
 \end_inset
@@ -4870,6 +4959,9 @@ Diameter
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $2.32+18.67\,X$
+\end_inset
+
 
 \end_layout
 
@@ -4879,7 +4971,25 @@ Diameter
 \begin_inset Text
 
 \begin_layout Plain Layout
+6.96
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3301
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -4889,6 +4999,18 @@ Diameter
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.17
 \end_layout
 
 \end_inset
@@ -4898,6 +5020,18 @@ Diameter
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.18
 \end_layout
 
 \end_inset
@@ -4920,6 +5054,9 @@ Height
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $3.94+42.96\,X$
+\end_inset
+
 
 \end_layout
 
@@ -4929,7 +5066,25 @@ Height
 \begin_inset Text
 
 \begin_layout Plain Layout
+7.16
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3107
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -4939,6 +5094,18 @@ Height
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+6.96
 \end_layout
 
 \end_inset
@@ -4948,6 +5115,18 @@ Height
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+6.97
 \end_layout
 
 \end_inset
@@ -4970,6 +5149,9 @@ Whole_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $6.99+3.55\,X$
+\end_inset
+
 
 \end_layout
 
@@ -4979,7 +5161,25 @@ Whole_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+7.36
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2919
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -4989,6 +5189,18 @@ Whole_weight
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.15
 \end_layout
 
 \end_inset
@@ -4998,6 +5210,18 @@ Whole_weight
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.33
 \end_layout
 
 \end_inset
@@ -5020,6 +5244,9 @@ Shucked_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $7.74+6.11\,X$
+\end_inset
+
 
 \end_layout
 
@@ -5029,7 +5256,25 @@ Shucked_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+8.55
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.1771
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -5039,6 +5284,18 @@ Shucked_weight
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.36
 \end_layout
 
 \end_inset
@@ -5048,6 +5305,18 @@ Shucked_weight
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.37
 \end_layout
 
 \end_inset
@@ -5070,6 +5339,9 @@ Viscera_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $7.26+14.82\,X$
+\end_inset
+
 
 \end_layout
 
@@ -5079,7 +5351,25 @@ Viscera_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+7.76
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2537
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -5089,6 +5379,18 @@ Viscera_weight
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8.55
 \end_layout
 
 \end_inset
@@ -5098,6 +5400,18 @@ Viscera_weight
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8.57
 \end_layout
 
 \end_inset
@@ -5120,6 +5434,9 @@ Shell_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $6.46+14.53\,X$
+\end_inset
+
 
 \end_layout
 
@@ -5129,7 +5446,25 @@ Shell_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+6.30
+\end_layout
 
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3937
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -5139,6 +5474,18 @@ Shell_weight
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.76
 \end_layout
 
 \end_inset
@@ -5148,6 +5495,18 @@ Shell_weight
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.17
 \end_layout
 
 \end_inset
@@ -6082,6 +6441,11 @@ Histogramas de las distintas características con respecto al sexo.
 
 \begin_layout Subsection
 Regresión mediante el algoritmo k-NN
+\end_layout
+
+\begin_layout Standard
+El algoritmo de los k vecinos más cercanos (k-Nearest Neighbours) puede
+ usarse para regresión.
 \end_layout
 
 \begin_layout Subsection
