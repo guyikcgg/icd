@@ -31,24 +31,49 @@ colnames(MSE) = c("train", "test")
 rownames(MSE) = names(abalone)[1:8]
 for (tt in colnames(MSE)) {
   for (i in rownames(MSE)) {
-    MSE[i, tt] = mean(sapply(1:5, run_lm_fold, model = Rings~eval(parse(text = i)), tt = tt))
+    MSE[i, tt] = mean(sapply(
+      1:5, 
+      run_lm_fold, 
+      model = Rings~eval(parse(text = i)), 
+      tt = tt
+    ))
   }
 }
 
-mean(sapply(1:5, run_lm_fold, model = Rings~Diameter))
+# Using the shell weight seems to be the best model, since it produces less error.
+
+# Scatterplots
+myData = melt.data.frame(
+  abalone[abalone$Height<0.3,],
+  id.vars=c("Sex", "Rings")
+)
+myData[myData$variable=="Height",] =
+  within(myData[myData$variable=="Height",], {
+    value = jitter(value, factor = 3)
+  }
+  )
+ggplot(myData, aes(x = value, y = Rings)) + geom_jitter(alpha = 0.03) + geom_smooth(method = lm) + facet_wrap( ~ variable, ncol = 2, scales = "free")
 
 
 # Analysis of preprocessing
 
 ## Correlation
 add.non.linearities = function(df) {
-  df$Shucked_weight2    = (df$Shucked_weight)^2
-  df$Shucked_weight3    = (df$Shucked_weight)^3
+  # Remove new fields
+  df = df[,1:9]
+  
+  df$Whole_weight.2     = (df$Whole_weight)^(1/2)
+  df$Whole_weight.3     = (df$Whole_weight)^(1/3)
+  df$Whole_weight.log   = log(df$Whole_weight)
   df$Shucked_weight.2   = (df$Shucked_weight)^(1/2)
   df$Shucked_weight.3   = (df$Shucked_weight)^(1/3)
-  df$Shucked_weight.4   = (df$Shucked_weight)^(1/4)
-  df$Shucked_weight.8   = (df$Shucked_weight)^(1/8)
   df$Shucked_weight.log = log(df$Shucked_weight)
+  df$Viscera_weight.2   = (df$Viscera_weight)^(1/2)
+  df$Viscera_weight.3   = (df$Viscera_weight)^(1/3)
+  df$Viscera_weight.log = log(df$Viscera_weight)
+  df$Shell_weight.2     = (df$Shell_weight)^(1/2)
+  df$Shell_weight.3     = (df$Shell_weight)^(1/3)
+  df$Shell_weight.log   = log(df$Shell_weight)
   
   return(df)
 }
@@ -60,11 +85,37 @@ abalone.tst = lapply(abalone.tst, add.non.linearities)
 
 # Calculate correlations
 Y.vars = grepl("Rings", names(abalone))
-X.vars = grepl("Shucked_weight", names(abalone))
+X.vars = grepl("_weight", names(abalone))
 cor.Shucked_weight = cor(
   subset(abalone, select = X.vars),
   subset(abalone, select = Y.vars)
 )
+
+## New models, based on new variables
+simple.linear.fit = list()
+for (i in 1:(length(abalone))) {
+  simple.linear.fit[[i]] = lm(abalone$Rings~abalone[,i])  
+  names(simple.linear.fit)[i] = names(abalone)[i]
+}
+
+summary(simple.linear.fit$Shucked_weight.2)
+summary(simple.linear.fit$Shucked_weight.3)
+summary(simple.linear.fit$Shucked_weight.log)
+
+MSE = matrix(nrow = ncol(abalone), ncol = 2)
+colnames(MSE) = c("train", "test")
+rownames(MSE) = names(abalone)
+for (tt in colnames(MSE)) {
+  for (i in rownames(MSE)) {
+    MSE[i, tt] = mean(sapply(
+      1:5, 
+      run_lm_fold, 
+      model = Rings~eval(parse(text = i)), 
+      tt = tt
+    ))
+  }
+}
+
 
 # Plot
 myData = melt.data.frame(

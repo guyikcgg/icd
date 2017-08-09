@@ -4704,39 +4704,49 @@ Regresión lineal simple
 
 \begin_layout Standard
 Se ha realizado un modelo de regresión lineal sobre cada regresor.
- Los datos de los mismos pueden verse en la tabla #.
- Como puede observarse, el regresor que ha dado mejor resultado ha sido
- #.
- Esta elección se ha basado en el #Error # sobre el conjunto de test, ya
- que consideraremos que el modelo tiene que tener la habilidad de generalizar
- (evitar sobreajuste).
-\end_layout
+ Los datos de los mismos pueden verse en
+\begin_inset space ~
+\end_inset
 
-\begin_layout Standard
-Observando las gráficas 
+
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "fig:scatterplot-rings-abalone"
+reference "tab:Regresiones-lineales-simples"
 
 \end_inset
 
-, podemos intuir que existen no linealidades entre algunas de las variables
- de entrada y la de salida.
- Se han llevado a cabo diversas experiencias, aplicando operaciones sencillas
- a los datos de entrada.
- En particular, se ha probado la raíz cuadrada, cúbica y el logaritmo.
- Estas tres operaciones tienen un sentido físico sobre algunas de las variables.
- En concreto, el volumen ocupado (directamente proporcional al peso) es
- una función cúbica del radio, mientras que la superficie de contacto con
- el exterior es una función cuadrática.
- Esto es un factor limitante del crecimiento.
- Por otro lado, hay especies que crecen de forma exponencial, como las colonias
- de bacterias.
- De entre las operaciones probadas, el logaritmo ha dado el mejor resultado.
-\end_layout
+.
+ Como puede observarse, el regresor que ha dado mejor resultado ha sido
+ 
+\family typewriter
+Shell_weight
+\family default
+, seguido por 
+\family typewriter
+Diameter
+\family default
+.
+ Esta elección se ha basado en minimizar el error cuadráditco medio sobre
+ el conjunto de test (
+\begin_inset Formula $\overline{MSE}_{tst}$
+\end_inset
 
-\begin_layout Standard
-#TABLAS Y FIGURAS#
+), ya que consideraremos que el modelo tiene que tener la habilidad de generaliz
+ar (evitar sobreajuste).
+ Llama la atención que los errors MSE medidos sobre los conjuntos de entrenamien
+to y el conjunto de test son muy parecidos.
+ Esto se debe a que se está usando un modelo de regresión con una única
+ variable, que difícilmente puede sobreajustar.
+ En los apartadios siguientes veremos un comportamiento bastante distinto,
+ en el que 
+\begin_inset Formula $\overline{MSE}_{tst}$
+\end_inset
+
+ será claramente mayor a 
+\begin_inset Formula $\overline{MSE}_{tra}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -4747,7 +4757,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="7">
+<lyxtabular version="3" rows="10" columns="7">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -4757,11 +4767,76 @@ status open
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 Regressor
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Summary of fit
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cross validation
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -4815,6 +4890,8 @@ Linear model (
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 p-value
 \end_layout
 
@@ -4894,6 +4971,8 @@ Sex
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 < 2.2e-16
 \end_layout
 
@@ -4925,17 +5004,7 @@ Sex
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\series bold
 8.40
 \end_layout
 
@@ -4989,6 +5058,8 @@ Length
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 < 2.2e-16
 \end_layout
 
@@ -5020,17 +5091,7 @@ Length
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\series bold
 7.18
 \end_layout
 
@@ -5084,6 +5145,8 @@ Diameter
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 < 2.2e-16
 \end_layout
 
@@ -5115,17 +5178,7 @@ Diameter
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\series bold
 6.97
 \end_layout
 
@@ -5179,6 +5232,8 @@ Height
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 < 2.2e-16
 \end_layout
 
@@ -5210,17 +5265,7 @@ Height
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\series bold
 7.33
 \end_layout
 
@@ -5274,6 +5319,8 @@ Whole_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 < 2.2e-16
 \end_layout
 
@@ -5305,17 +5352,7 @@ Whole_weight
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\series bold
 7.37
 \end_layout
 
@@ -5369,6 +5406,8 @@ Shucked_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 < 2.2e-16
 \end_layout
 
@@ -5400,17 +5439,7 @@ Shucked_weight
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\series bold
 8.57
 \end_layout
 
@@ -5464,6 +5493,8 @@ Viscera_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 < 2.2e-16
 \end_layout
 
@@ -5495,17 +5526,7 @@ Viscera_weight
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\series bold
 7.77
 \end_layout
 
@@ -5559,6 +5580,8 @@ Shell_weight
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
 < 2.2e-16
 \end_layout
 
@@ -5590,17 +5613,7 @@ Shell_weight
 
 \begin_layout Plain Layout
 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\uuline off
-\uwave off
-\noun off
-\color none
+\series bold
 6.32
 \end_layout
 
@@ -5618,6 +5631,12 @@ Shell_weight
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Regresiones-lineales-simples"
+
+\end_inset
+
 Regresiones lineales simples, con cada regresor.
 \end_layout
 
@@ -5632,6 +5651,44 @@ Regresiones lineales simples, con cada regresor.
 \end_layout
 
 \begin_layout Standard
+Observando las gráficas 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "fig:scatterplot-rings-abalone"
+
+\end_inset
+
+, podemos intuir que existen no linealidades entre algunas de las variables
+ de entrada y la de salida.
+ En concreto, es claro que todos los pesos (variables 
+\family typewriter
+_weight
+\family default
+) siguen una curva parecida a una raíz o un logaritmo.
+ Se han llevado a cabo diversas experiencias, aplicando operaciones sencillas
+ a los datos de entrada.
+ En particular, se ha probado la raíz cuadrada, cúbica y el logaritmo.
+ Estas tres operaciones tienen un sentido físico sobre algunas de las variables.
+ En concreto, el volumen ocupado (directamente proporcional al peso) es
+ una función cúbica del radio, mientras que la superficie de contacto con
+ el exterior es una función cuadrática.
+ Esto es un factor limitante del crecimiento.
+ Por otro lado, hay especies que crecen de forma exponencial, como las colonias
+ de bacterias.
+ De entre las operaciones probadas, el logaritmo ha dado el mejor resultado,
+ al aumentar el índice de correlación lineal de Pearson y mejorar el ajuste
+ lineal, como puede verse en
+\begin_inset space ~
+\end_inset
+
+#.
+\end_layout
+
+\begin_layout Standard
+#TABLAS Y FIGURAS#
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
@@ -5639,16 +5696,93 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="6">
+<lyxtabular version="3" rows="13" columns="7">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
+<column alignment="center" valignment="middle" width="2.1cm">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Regressor
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Correlation with 
+\family typewriter
+Rings
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Summary of fit
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Cross validation
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5661,7 +5795,10 @@ status open
 \begin_inset Text
 
 \begin_layout Plain Layout
-Correlación Rings
+\begin_inset Formula $\hat{Y}(X)$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5670,7 +5807,10 @@ Correlación Rings
 \begin_inset Text
 
 \begin_layout Plain Layout
-Modelo para tra1
+\begin_inset Formula $R^{2}$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5679,7 +5819,9 @@ Modelo para tra1
 \begin_inset Text
 
 \begin_layout Plain Layout
-Medidas de bondad tra1
+
+\size small
+p-value
 \end_layout
 
 \end_inset
@@ -5688,7 +5830,10 @@ Medidas de bondad tra1
 \begin_inset Text
 
 \begin_layout Plain Layout
-meanTRA
+\begin_inset Formula $\overline{MSE}_{tra}$
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5699,7 +5844,202 @@ meanTRA
 \begin_layout Plain Layout
 
 \series bold
-meanTST
+\begin_inset Formula $\mathbf{\overline{MSE}_{tst}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size footnotesize
+\begin_inset Formula $\mathtt{Whole\_weight}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.540
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $6.99+3.55\,X$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.2919
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+< 2.2e-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.36
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+7.37
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size footnotesize
+\begin_inset Formula $\log\left(\mathtt{Whole\_weight}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.584
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10.93+2.25\,X$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3411
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+< 2.2e-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.85
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+6.86
 \end_layout
 
 \end_inset
@@ -5721,10 +6061,22 @@ meanTST
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.421 
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $7.74+6.11\,X$
+\end_inset
+
 
 \end_layout
 
@@ -5734,7 +6086,7 @@ meanTST
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.1771
 \end_layout
 
 \end_inset
@@ -5744,6 +6096,8 @@ meanTST
 
 \begin_layout Plain Layout
 
+\size footnotesize
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -5753,6 +6107,18 @@ meanTST
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8.55
 \end_layout
 
 \end_inset
@@ -5762,6 +6128,8 @@ meanTST
 
 \begin_layout Plain Layout
 
+\series bold
+8.57
 \end_layout
 
 \end_inset
@@ -5783,10 +6151,22 @@ meanTST
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.477 
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $5.49+7.85\,X$
+\end_inset
+
 
 \end_layout
 
@@ -5796,7 +6176,7 @@ meanTST
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.2270
 \end_layout
 
 \end_inset
@@ -5806,6 +6186,8 @@ meanTST
 
 \begin_layout Plain Layout
 
+\size footnotesize
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -5815,6 +6197,18 @@ meanTST
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+8.03
 \end_layout
 
 \end_inset
@@ -5824,6 +6218,8 @@ meanTST
 
 \begin_layout Plain Layout
 
+\series bold
+8.04
 \end_layout
 
 \end_inset
@@ -5845,10 +6241,22 @@ meanTST
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.492 
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Formula $3.43+9.64\,X$
+\end_inset
+
 
 \end_layout
 
@@ -5858,7 +6266,7 @@ meanTST
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.2423
 \end_layout
 
 \end_inset
@@ -5868,6 +6276,8 @@ meanTST
 
 \begin_layout Plain Layout
 
+\size footnotesize
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -5877,6 +6287,18 @@ meanTST
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.87
 \end_layout
 
 \end_inset
@@ -5886,13 +6308,15 @@ meanTST
 
 \begin_layout Plain Layout
 
+\series bold
+7.89
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -5907,10 +6331,459 @@ meanTST
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.510 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $12.40+1.91\,X$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.2604
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+< 2.2e-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.69
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+7.70
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size footnotesize
+\begin_inset Formula $\mathtt{Viscera\_weight}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.504
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $7.26+14.82\,X$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.2537
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+< 2.2e-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+7.76
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+7.77
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+\size footnotesize
+\begin_inset Formula $\log\left(\mathtt{Viscera\_weight}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.566
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $14.17+2.15\,X$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3198
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+< 2.2e-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.07
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+7.08
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\mathtt{Shell\_weight}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.627
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $6.46+14.53\,X$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.3937
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+< 2.2e-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+6.30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+6.32
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\emph on
+\begin_inset Formula $\sqrt[3]{\mathtt{Shell\_weight}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+0.649
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+\begin_inset Formula $0.87+15.31\,X$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+0.4212
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+\emph on
+< 2.2e-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+6.02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\emph on
+6.03
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size footnotesize
+\begin_inset Formula $\log\left(\mathtt{Shell\_weight}\right)$
+\end_inset
+
 
 \end_layout
 
@@ -5920,6 +6793,18 @@ meanTST
 \begin_inset Text
 
 \begin_layout Plain Layout
+0.634
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $14.14+2.52\,X$
+\end_inset
+
 
 \end_layout
 
@@ -5929,7 +6814,7 @@ meanTST
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.4015
 \end_layout
 
 \end_inset
@@ -5939,6 +6824,17 @@ meanTST
 
 \begin_layout Plain Layout
 
+\size footnotesize
+< 2.2e-16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.22
 \end_layout
 
 \end_inset
@@ -5948,6 +6844,8 @@ meanTST
 
 \begin_layout Plain Layout
 
+\series bold
+6.23
 \end_layout
 
 \end_inset
