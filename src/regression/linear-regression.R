@@ -151,39 +151,99 @@ names(selected.fields) = c(
 ggplot(subset(myData, variable %in% names(selected.fields)), aes(x = value, y = Rings)) + 
   geom_jitter(alpha = 0.03) + geom_smooth(method = lm) +
   facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) + 
-  ylab("")
-#ggplot(subset(myData, variable %in% names(selected.fields)), aes(y = value, x = Rings.log)) + geom_jitter(width = 0.8, alpha = 0.12) + facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) + ylab("") + xlab("log(Rings)")
+  xlab("")
 
-# Logarithmical growth makes greater correlation. Cube makes more beautiful plot...
+# Linear regression using multiple variables
+## Only linear models
+abalone = abalone[,1:9]
 
+myFit = lm(Rings~., abalone)
+summary(myFit)
 
-
-
-
-# Fit a simple model using just `Shucked_weight` and preprocessed `Shucked_weight` and `Rings`.
-# Use K-fold cross validation to check which preprocessing works best.
-
-
-
-
-
-
-#lmMSEtrain = mean( sapply(1:5, run_lm_fold, "abalone", model = Y~X6, tt = "train") )
-#lmMSEtest = mean( sapply(1:5, run_lm_fold, "abalone", model = Y~X6, tt = "test") )
-#lmMSEtest = mean( sapply(1:5, run_lm_fold, "abalone", model = Y~log(X6), tt = "test") )
-#lmMSEtest = mean( sapply(1:5, run_lm_fold, "abalone", model = Y~sqrt(X6), tt = "test") )
-#lmMSEtest = mean( sapply(1:5, run_lm_fold, "abalone", model = Y~(X6^1/3), tt = "test") )
-
-mean( sapply(1:5, run_lm_fold, model = Rings~., tt = "test") )
-summary(lm(Rings.log~Shucked_weight.log, abalone))
-
-myFit = lm(Rings~Shucked_weight, abalone)
-
+myModel = Rings ~ 
+  Diameter + 
+  Height + 
+  Whole_weight + 
+  Shucked_weight + 
+  Viscera_weight + 
+  Shell_weight
+myFit = lm(myModel, abalone)
 summary(myFit)
 
 
-ggplot(subset(myData, variable %in% "Shucked_weight"), aes(y = log(value), x = Rings)) +
-  geom_jitter(width = 0.8, alpha = 0.12) +
-  geom_smooth(method = "lm", formula = y~x) +
-  facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) +
-  ylab("")
+MSE = matrix(nrow = 1, ncol = 2)
+colnames(MSE) = c("train", "test")
+for (tt in colnames(MSE)) {
+  MSE[1, tt] = mean(sapply(
+    1:5, 
+    run_lm_fold, 
+    model = myModel, 
+    tt = tt
+  ))
+}
+
+# Add non-linearities
+abalone = add.non.linearities(abalone)
+
+myModel = Rings ~
+  Length +
+  Height + 
+  Whole_weight.log +
+  Shucked_weight.log +
+  Viscera_weight.log +
+  Shell_weight.3
+myFit = lm(Rings~., abalone)
+summary(myFit)
+
+myFit = lm(myModel, abalone)
+summary(myFit)
+
+MSE = matrix(nrow = 1, ncol = 2)
+colnames(MSE) = c("train", "test")
+for (tt in colnames(MSE)) {
+  MSE[1, tt] = mean(sapply(
+    1:5, 
+    run_lm_fold, 
+    model = myModel, 
+    tt = tt
+  ))
+}
+
+myModel = Rings ~ 
+  poly(Length, 2) +
+  poly(Height, 2) + 
+  poly(Whole_weight, 2) +
+  poly(Shucked_weight, 2) +
+  poly(Viscera_weight, 2) +
+  poly(Shell_weight, 2)
+myFit = lm(myModel, abalone)
+summary(myFit)
+
+MSE = matrix(nrow = 1, ncol = 2)
+colnames(MSE) = c("train", "test")
+for (tt in colnames(MSE)) {
+  MSE[1, tt] = mean(sapply(
+    1:5, 
+    run_lm_fold, 
+    model = myModel,
+    tt = tt
+  ))
+}
+
+# Add interactions
+myModel = Rings ~ 
+  Length +
+  Height +
+  Whole_weight.log *
+  Shucked_weight.log *
+  Viscera_weight *
+  Shell_weight.3
+
+myFit = lm(myModel, abalone)
+summary(myFit)
+
+MSE = matrix(nrow = 1, ncol = 2)
+colnames(MSE) = c("train", "test")
+for (tt in colnames(MSE)) {
+  MSE[1, tt] = mean(sapply(1:5, run_lm_fold, model = myModel, tt = tt))
+}
