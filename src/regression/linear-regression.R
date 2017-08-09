@@ -52,7 +52,7 @@ myData[myData$variable=="Height",] =
     value = jitter(value, factor = 3)
   }
   )
-ggplot(myData, aes(x = value, y = Rings)) + geom_jitter(alpha = 0.03) + geom_smooth(method = lm) + facet_wrap( ~ variable, ncol = 2, scales = "free")
+ggplot(myData, aes(x = value, y = Rings)) + geom_jitter(alpha = 0.03) + geom_smooth(method = lm) + facet_wrap( ~ variable, ncol = 2, scales = "free") + xlab("")
 
 
 # Analysis of preprocessing
@@ -98,9 +98,13 @@ for (i in 1:(length(abalone))) {
   names(simple.linear.fit)[i] = names(abalone)[i]
 }
 
+summary(simple.linear.fit$Whole_weight.log)
 summary(simple.linear.fit$Shucked_weight.2)
 summary(simple.linear.fit$Shucked_weight.3)
 summary(simple.linear.fit$Shucked_weight.log)
+summary(simple.linear.fit$Viscera_weight.log)
+summary(simple.linear.fit$Shell_weight.3)
+summary(simple.linear.fit$Shell_weight.log)
 
 MSE = matrix(nrow = ncol(abalone), ncol = 2)
 colnames(MSE) = c("train", "test")
@@ -124,27 +128,30 @@ myData = melt.data.frame(
 )
 
 selected.fields = c(
+  "Whole_weight",
+  "log(Whole_weight)",
   "Shucked_weight",
-  "(Shucked_weight)^(2)",
-  "(Shucked_weight)^(3)",
-  "(Shucked_weight)^(1/2)",
-  "(Shucked_weight)^(1/3)",
-  "(Shucked_weight)^(1/4)",
-  "(Shucked_weight)^(1/8)",
-  "log(Shucked_weight)"
+  "log(Shucked_weight)",
+  "Viscera_weight",
+  "log(Viscera_weight)",
+  "Shell_weight",
+  "(Shell_weight)^(1/3)"
 )
 names(selected.fields) = c(
+  "Whole_weight",
+  "Whole_weight.log",
   "Shucked_weight",
-  "Shucked_weight2",
-  "Shucked_weight3",
-  "Shucked_weight.2",
-  "Shucked_weight.3",
-  "Shucked_weight.4",
-  "Shucked_weight.8",
-  "Shucked_weight.log"
+  "Shucked_weight.log",
+  "Viscera_weight",
+  "Viscera_weight.log",
+  "Shell_weight",
+  "Shell_weight.3"
 )
 
-#ggplot(subset(myData, variable %in% names(selected.fields)), aes(y = value, x = Rings)) + geom_jitter(width = 0.8, alpha = 0.12) + facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) + ylab("")
+ggplot(subset(myData, variable %in% names(selected.fields)), aes(x = value, y = Rings)) + 
+  geom_jitter(alpha = 0.03) + geom_smooth(method = lm) +
+  facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) + 
+  ylab("")
 #ggplot(subset(myData, variable %in% names(selected.fields)), aes(y = value, x = Rings.log)) + geom_jitter(width = 0.8, alpha = 0.12) + facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) + ylab("") + xlab("log(Rings)")
 
 # Logarithmical growth makes greater correlation. Cube makes more beautiful plot...
