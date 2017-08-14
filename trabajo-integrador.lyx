@@ -7772,6 +7772,41 @@ El algoritmo de los k vecinos más cercanos (k-Nearest Neighbours) puede
  usarse para regresión.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename src/analysis/img/Rplot17.png
+	lyxscale 10
+	width 80col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Regresiones con el algoritmo k-NN, con cada regresor de forma individual.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Comparación de los resultados
 \end_layout
