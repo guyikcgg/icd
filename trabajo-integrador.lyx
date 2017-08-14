@@ -7431,6 +7431,9 @@ Modelo lineal usando polinomios de grado 3 para tratar de corregir las no
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\family typewriter
+\size footnotesize
 Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight *
  Shell_weight.3
 \end_layout
@@ -7798,12 +7801,13 @@ name "sec:appendix-analysis"
 Apéndice 1 - Código fuente: Análisis de datos
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection
 Código fuente usado en la visualización de los datos 
 \emph on
 abalone
-\emph default
-.
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "src/analysis/abalone.R"
@@ -7811,18 +7815,39 @@ filename "src/analysis/abalone.R"
 \end_inset
 
 
+\family typewriter
+\size footnotesize
+End Of File 'abalone.R'
 \end_layout
 
-\begin_layout Standard
+\begin_layout LyX-Code
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Código fuente usado en la visualización de los datos 
 \emph on
 tae
-\emph default
-.
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "src/analysis/tae.R"
 
+\end_inset
+
+
+\family typewriter
+\size footnotesize
+End Of File 'tae.R'
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -7838,12 +7863,32 @@ name "sec:appendix-regression"
 Apéndice 2 - Código fuente: Regresión
 \end_layout
 
-\begin_layout Standard
-Código fuente de las funciones usadas en los ejercicios de regresión.
+\begin_layout Subsection
+Código fuente de las funciones usadas en los ejercicios de regresión
 \end_layout
 
 \begin_layout Standard
-Código fuente usado en el ejercicio de regresión lineal.
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "src/regression/build-workspace.R"
+
+\end_inset
+
+
+\family typewriter
+\size footnotesize
+End Of File 'build-workspace.R'
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Código fuente usado en el ejercicio de regresión lineal
 \end_layout
 
 \begin_layout Standard
@@ -7854,15 +7899,23 @@ filename "src/regression/linear-regression.R"
 \end_inset
 
 
+\family typewriter
+\size footnotesize
+End Of File 'linear-regression.R'
+\end_layout
+
+\begin_layout LyX-Code
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Código fuente usado en el ejercicio de regresión k-NN
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float algorithm
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "src/regression/knn-regression.R"
@@ -7870,43 +7923,24 @@ filename "src/regression/knn-regression.R"
 \end_inset
 
 
+\family typewriter
+\size footnotesize
+End Of File 'knn-regression.R'
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Código fuente usado en el ejercicio de regresión k-NN.
-\end_layout
-
+\begin_layout LyX-Code
+\begin_inset Newpage pagebreak
 \end_inset
 
 
 \end_layout
 
-\end_inset
-
-
+\begin_layout Subsection
+Código fuente de la comparación entre los distintos algoritmos de regresión
 \end_layout
 
-\begin_layout Standard
-\begin_inset Float algorithm
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Código fuente de la comparación entre los distintos algoritmos de regresión.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
+\begin_layout LyX-Code
+\begin_inset Newpage pagebreak
 \end_inset
 
 
