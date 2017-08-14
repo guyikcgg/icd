@@ -1,6 +1,6 @@
 ################################################
 #      Introducción a la Ciencia de Datos      #
-#              ANÁLISIS DE DATOS               #
+#     FUNCIONES Y VARIABLES PARA REGRESIÓN     #
 #                                              #
 # (C) Cristian González Guerrero               #
 ################################################
@@ -102,7 +102,7 @@ run_knn_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.
   }
   
   # Perform k-NN fit
-  knn.fit = kknn(model, x_tra)
+  knn.fit = kknn(model, x_tra, x_tst)
   output.var = as.character(model[2])
   
   # Get MSE Error

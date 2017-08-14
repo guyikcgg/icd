@@ -5,39 +5,8 @@
 # (C) Cristian González Guerrero               #
 ################################################
 
-# Load required libraries
-library(utils)
-library(stats)
-library(foreign)
-library(ggplot2)
-library(reshape)
-
-# ABALONE
-
-# Load the dataset and provide it with the
-# structure from Keel
-abalone = read.csv(
-  "datasets/abalone/abalone.dat",
-  comment.char="@"
-)
-names(abalone) = c(
-  "Sex",
-  "Length",
-  "Diameter",
-  "Height",
-  "Whole_weight",
-  "Shucked_weight",
-  "Viscera_weight",
-  "Shell_weight",
-  "Rings"
-)
-
-
-abalone$Sex = factor(
-  abalone$Sex,
-  levels = c(1, 2, 3),
-  labels = c("M", "F", "I")
-)
+# Build the workspace (load variables and functions)
+source("../regression/build-workspace.R")
 
 
 # Get the data type and dimension

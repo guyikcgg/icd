@@ -52,7 +52,11 @@ myData[myData$variable=="Height",] =
     value = jitter(value, factor = 3)
   }
   )
-ggplot(myData, aes(x = value, y = Rings)) + geom_jitter(alpha = 0.03) + geom_smooth(method = lm) + facet_wrap( ~ variable, ncol = 2, scales = "free") + xlab("")
+ggplot(myData, aes(x = value, y = Rings)) + 
+  geom_jitter(alpha = 0.03) + 
+  geom_smooth(method = lm) + 
+  facet_wrap( ~ variable, ncol = 2, scales = "free") + 
+  xlab("")
 
 
 # Analysis of preprocessing
@@ -247,3 +251,4 @@ colnames(MSE) = c("train", "test")
 for (tt in colnames(MSE)) {
   MSE[1, tt] = mean(sapply(1:5, run_lm_fold, model = myModel, tt = tt))
 }
+
