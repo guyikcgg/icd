@@ -5,41 +5,44 @@
 # (C) Cristian González Guerrero               #
 ################################################
 
-# Load required libraries
-library(utils)
-library(stats)
-library(foreign)
-library(ggplot2)
-library(reshape)
-library(kknn)
+# Build the workspace
+source("../regression/build-workspace.R")
 
-# FUNCTIONS
-
-run_knn_fold = function(i, file.name, model = Y~.,  tt = "test", n = 5) {
-  # Open files
-  file.name = paste("datasets", file.name, file.name, sep = "/")
-
-  file = paste(file.name, "-", as.character(n), "-", i, "tra.dat", sep = "")
-  x_tra = read.csv(file, comment.char = "@")
-  file = paste(file.name, "-", as.character(n), "-", i, "tst.dat", sep = "")
-  x_tst = read.csv(file, comment.char = "@")
-  ln = length(names(x_tra))-1
-
-  # Give names
-  names(x_tra)[1:ln] = paste("X", 1:ln, sep = "")
-  names(x_tra)[ln+1] = "Y"
-  names(x_tst)[1:ln] = paste("X", 1:ln, sep = "")
-  names(x_tst)[ln+1] = "Y"
-
-  if (tt == "train") {
-    test = x_tra
-  } else {
-    test = x_tst
-  }
-
-  fitMulti = kknn(model, x_tra, x_tst)
-
-  # Get MSE Error
-  yprime = predict(fitMulti, test)
-  sum(abs(test$Y-yprime)^2)/length(yprime)
+# Get simple knn models
+simple.knn.fit = list()
+for (i in 1:(length(abalone)-1)) {
+  simple.knn.fit[[i]] = kknn(abalone$Rings~abalone[,i], abalone, abalone)
+  names(simple.knn.fit)[i] = names(abalone)[i]
 }
+
+
+# Scatterplots
+myData1 = melt.data.frame(
+  abalone,
+  id.vars=c("Sex", "Rings")
+)
+myData1[myData$variable=="Height",] =
+  within(myData[myData$variable=="Height",], {
+    value = jitter(value, factor = 3)
+  })
+
+myData2 = data.frame()
+for (variable in names(simple.knn.fit)[2:8]) {
+  Prediction = simple.knn.fit[[variable]]$fitted.values
+  myData2 = rbind(myData2, data.frame(variable, Prediction))
+}
+
+myData = cbind(myData1, myData2)
+
+Data = "Original data"
+b = "Prediction"
+colorPalette <- c("#000000", "#0072B2")
+
+ggplot(myData) + 
+  geom_point(aes(x = value, y = Rings, color = Data), alpha = 0.03) + 
+  geom_point(aes(x = value, y = Prediction, color = b), alpha = 0.03) + 
+  facet_wrap( ~ variable, ncol = 2, scales = "free") + 
+  xlab("") +
+  scale_colour_manual(values=colorPalette) +
+  guides(colour = guide_legend(override.aes = list(alpha = 1)))
+
