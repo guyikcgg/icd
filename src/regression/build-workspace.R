@@ -91,7 +91,8 @@ run_lm_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.,
   sum(abs(test[,output.var]-yprime)^2)/length(yprime)
 }
 
-run_knn_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.,  tt = "test") {
+
+run_knn_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.,  tt = "test", ...) {
   x_tra = tra[[i]]
   x_tst = tst[[i]]
   
@@ -101,12 +102,12 @@ run_knn_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.
     test = x_tst
   }
   
-  # Perform k-NN fit
-  knn.fit = kknn(model, x_tra, x_tst)
+  # Perform knn fit
+  knn.fit = kknn(model, x_tra, test, ...)
   output.var = as.character(model[2])
   
   # Get MSE Error
-  yprime = predict(knn.fit, test)
+  yprime = knn.fit$fitted.values
   sum(abs(test[,output.var]-yprime)^2)/length(yprime)
 }
 
