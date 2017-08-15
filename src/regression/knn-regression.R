@@ -18,7 +18,7 @@ for (i in 1:(length(abalone)-1)) {
 }
 
 
-# Scatterplots
+## Scatterplots
 myData1 = melt.data.frame(
   abalone,
   id.vars=c("Sex", "Rings")
@@ -43,5 +43,37 @@ ggplot(myData) +
   xlab("") +
   scale_colour_manual(values=colorPalette) +
   guides(colour = guide_legend(override.aes = list(alpha = 1)))
+
+## MSE
+MSE = matrix(nrow = 8, ncol = 2)
+colnames(MSE) = c("train", "test")
+rownames(MSE) = names(abalone)[1:8]
+for (tt in colnames(MSE)) {
+  for (i in rownames(MSE)) {
+    MSE[i, tt] = mean(sapply(
+      1:5, 
+      run_knn_fold, 
+      model = Rings~eval(parse(text = i)), 
+      tt = tt
+    ))
+  }
+}
+
+## Comparative k
+MSE.Shell_weight = c()
+k = 1:20
+for (i in k) {
+  MSE.Shell_weight[i] = mean(sapply(
+    1:5, 
+    run_knn_fold, 
+    model = Rings~Shell_weight, 
+    k = i
+  ))
+}
+MSE.Shell_weight = data.frame(k, MSE.Shell_weight)
+
+ggplot(MSE.Shell_weight, aes(x = k, y = MSE.Shell_weight)) + geom_point() + geom_line()
+
+
 
 
