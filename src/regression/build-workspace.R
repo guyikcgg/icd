@@ -111,5 +111,26 @@ run_knn_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.
   sum(abs(test[,output.var]-yprime)^2)/length(yprime)
 }
 
+# Add non linearities to abalone training/test set
+add.non.linearities = function(df) {
+  # Remove new fields
+  df = df[,1:9]
+  
+  df$Whole_weight.2     = (df$Whole_weight)^(1/2)
+  df$Whole_weight.3     = (df$Whole_weight)^(1/3)
+  df$Whole_weight.log   = log(df$Whole_weight)
+  df$Shucked_weight.2   = (df$Shucked_weight)^(1/2)
+  df$Shucked_weight.3   = (df$Shucked_weight)^(1/3)
+  df$Shucked_weight.log = log(df$Shucked_weight)
+  df$Viscera_weight.2   = (df$Viscera_weight)^(1/2)
+  df$Viscera_weight.3   = (df$Viscera_weight)^(1/3)
+  df$Viscera_weight.log = log(df$Viscera_weight)
+  df$Shell_weight.2     = (df$Shell_weight)^(1/2)
+  df$Shell_weight.3     = (df$Shell_weight)^(1/3)
+  df$Shell_weight.log   = log(df$Shell_weight)
+  
+  return(df)
+}
+
 rm(i, j, filename, x)
 
