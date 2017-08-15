@@ -54,7 +54,8 @@ for (tt in colnames(MSE)) {
       1:5, 
       run_knn_fold, 
       model = Rings~eval(parse(text = i)), 
-      tt = tt
+      tt = tt,
+      k = 7
     ))
   }
 }
@@ -75,5 +76,22 @@ MSE.Shell_weight = data.frame(k, MSE.Shell_weight)
 ggplot(MSE.Shell_weight, aes(x = k, y = MSE.Shell_weight)) + geom_point() + geom_line()
 
 
+#Non-linearities
+abalone = add.non.linearities(abalone)
+abalone.tra = lapply(abalone.tra, add.non.linearities)
+abalone.tst = lapply(abalone.tst, add.non.linearities)
 
+MSE = matrix(nrow = ncol(abalone), ncol = 2)
+colnames(MSE) = c("train", "test")
+rownames(MSE) = names(abalone)
+for (tt in colnames(MSE)) {
+  for (i in rownames(MSE)) {
+    MSE[i, tt] = mean(sapply(
+      1:5, 
+      run_knn_fold, 
+      model = Rings~eval(parse(text = i)), 
+      tt = tt
+    ))
+  }
+}
 
