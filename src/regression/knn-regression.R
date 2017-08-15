@@ -55,7 +55,7 @@ for (tt in colnames(MSE)) {
       run_knn_fold, 
       model = Rings~eval(parse(text = i)), 
       tt = tt,
-      k = 7
+      k = 7   # Modify k
     ))
   }
 }
@@ -90,7 +90,8 @@ for (tt in colnames(MSE)) {
       1:5, 
       run_knn_fold, 
       model = Rings~eval(parse(text = i)), 
-      tt = tt
+      tt = tt,
+      k = 7   # Modify k
     ))
   }
 }
