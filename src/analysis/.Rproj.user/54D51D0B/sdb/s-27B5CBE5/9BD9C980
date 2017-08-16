@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n# Build the workspace\nsource(\"../regression/build-workspace.R\")\n\nabalone.tra = lapply(abalone.tra, add.non.linearities)\nabalone.tst = lapply(abalone.tst, add.non.linearities)\n\n\n# Comparison of data points\n\nmyModel = Rings ~\n  Length + \n  Height + \n  Whole_weight.log * \n  Shucked_weight.log * \n  Viscera_weight * \n  Shell_weight.3\n\nmyTrain = abalone.tra[[1]]\nmyTest  = abalone.tst[[1]][sample(1:nrow(abalone.tst[[1]]), 20), ]\n\n## Linear regression\n# Plot some points of the last model\nmyFit = lm(myModel, myTrain)\nmyResult = predict(myFit, myTest)\n\nmyData1 = myTest\nmyData1$Rings = myResult\nmyData1 = cbind(myData1, data.type = \"prediction\", method = \"Linear Model\")\nmyData1 = rbind(myData1, cbind(myTest, data.type = \"original value\", method = \"Linear Model\"))\nmyData1 = melt.data.frame(\n  data = myData1,\n  id.vars = c(\"Shell_weight\", \"data.type\", \"method\"),\n  measure.vars = \"Rings\"\n)\n\n## k-NN\n# Plot some points of the last model\nmyResult = kknn(myModel, myTrain, myTest, k = 7)\n\nmyData2 = myTest\nmyData2$Rings = myResult$fitted.values\nmyData2 = cbind(myData2, data.type = \"prediction\", method = \"k-NN\")\nmyData2 = rbind(myData2, cbind(myTest, data.type = \"original value\", method = \"k-NN\"))\nmyData2 = melt.data.frame(\n  data = myData2,\n  id.vars = c(\"Shell_weight\", \"data.type\", \"method\"),\n  measure.vars = \"Rings\"\n)\n\n\n## Plot\nmyData = rbind(myData1, myData2)\n\nggplot(myData, aes(x = Shell_weight, y = value, color = data.type)) + \n  geom_point() + \n  ylab(\"Rings\") +\n  xlab(\"Shell weight\") + \n  geom_line(aes(group = Shell_weight, color = \"error\")) +\n  labs(color = \"Data type\") + \n  facet_wrap( ~ method, ncol = 1)\n\n",
+    "created" : 1502884131026.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2204636922",
+    "id" : "9BD9C980",
+    "lastKnownWriteTime" : 1502885766,
+    "last_content_update" : 1502885766353,
+    "path" : "/home/cristian10/workspace/master/icd/final/src/regression/comparison.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
