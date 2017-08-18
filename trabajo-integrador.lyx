@@ -5672,6 +5672,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:lm-regresion-simple-1"
+
+\end_inset
+
 Regresiones lineales simples, con cada regresor.
 \end_layout
 
@@ -7311,7 +7317,7 @@ poly(Length, 2) + poly(Height, 2) + poly(Whole_weight, 2) + poly(Shucked_weight,
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -7386,7 +7392,7 @@ poly(Length, 3) + poly(Height, 3) + poly(Whole_weight, 3) + poly(Shucked_weight,
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -7461,7 +7467,7 @@ Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight *
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+< 2.2e-16
 \end_layout
 
 \end_inset
@@ -7516,6 +7522,12 @@ Modelo lineal teniendo en cuenta las interacciones entre algunas de las
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Regresiones-lineales-múltiples"
+
+\end_inset
+
 Regresiones lineales múltiples.
 \end_layout
 
@@ -7692,6 +7704,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:knn-regresion-simple"
+
+\end_inset
+
 Regresiones con el algoritmo k-NN, con cada regresor de forma individual
  (
 \begin_inset Formula $k=7$
@@ -9869,8 +9887,30 @@ Regresiones simples usando k-NN, con cada regresor.
 \end_layout
 
 \begin_layout Standard
-Mirando las gráficas, podría parecer que k-NN con un único regresor ofrece
- mejores resultados.
+Comparando las figuras
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:lm-regresion-simple-1"
+
+\end_inset
+
+ y
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:knn-regresion-simple"
+
+\end_inset
+
+, podría parecer que k-NN con un único regresor ofrece resultados muy superiores
+ a los del modelo lineal.
  No obstante, los resultados son muy dependientes del parámetro 
 \begin_inset Formula $k$
 \end_inset
@@ -9880,7 +9920,7 @@ Mirando las gráficas, podría parecer que k-NN con un único regresor ofrece
 \begin_inset Formula $k=7$
 \end_inset
 
-, el ajuste lineal tiene en realidad mejores resultados.
+, el ajuste lineal tiene, en realidad, mejores resultados.
  En general, parece que k-NN produce más sobreajuste, al tener una diferencia
  mayor entre 
 \begin_inset Formula $\overline{MSE}{}_{train}$
@@ -9894,12 +9934,21 @@ Mirando las gráficas, podría parecer que k-NN con un único regresor ofrece
  Una de las mayores ventajas de k-NN es que se ajusta a las no linealidades
  sin necesidad de preprocesamiento, devolviendo resultados muy parecidos
  en ambos casos.
- Por este motivo, prescindiremos de esta etapa al trabajar con modelos más
- complejos.
+ Por este motivo, puede prescindirse de esta etapa al trabajar con modelos
+ más complejos.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Se podrían probar otras métricas...
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -10650,6 +10699,12 @@ Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight *
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Regresiones-kNN-múltiples"
+
+\end_inset
+
 Regresiones kNN múltiples.
 \end_layout
 
@@ -10683,7 +10738,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparison of different kNN models vs k.
+Comparación de diferentes modelos construidos con k-NN, cambiando el valor
+ de 
+\begin_inset Formula $k$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -10706,24 +10766,462 @@ Comparación de los resultados
 
 \begin_layout Standard
 En este apartado se comparan los resultados obtenidos con el ajuste lineal,
- el algoritmo k-NN aplicado a la regresión y el modelo de regresión M5'.
+ el algoritmo k-NN aplicado a la regresión.
+ Más tarde, se comparan de forma genérica los modelos de ajuste lineal,
+ k-NN y el modelo de regresión M5'.
+ Para ello, se ha realizado un contraste de hipótesis sobre los resultados
+ de la aplicación de estos métodos a los distintos conjuntos de datos usados
+ en estas prácticas.
+\end_layout
+
+\begin_layout Subsubsection
+Comparación entre los modelos lineales y regresiones con k-NN para el caso
+ estudiado
 \end_layout
 
 \begin_layout Standard
-kNN es más pesado que LM -> mucho más coste computacional
+A la vista de las tablas 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Regresiones-lineales-múltiples"
+
+\end_inset
+
+ y 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Regresiones-kNN-múltiples"
+
+\end_inset
+
+, es posible decir que ambos métodos arrojan unos resultados parecidos,
+ siempre que 
+\begin_inset Formula $k$
+\end_inset
+
+ sea lo suficientemente elevado.
+ La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparación-puntos-kNN-LM"
+
+\end_inset
+
+ muestra los errores cometidos para 20 muestras de un conjunto de test,
+ que no ha sido usado en el entrenamiento del modelo.
+ En la misma puede apreciarse que ambos modelos cometen errores parecidos
+ para la mayoría de los puntos.
+ En cambio, hay puntos para los que los errores cometidos son considerablemente
+ distintos.
+ A pesar de estas diferencias, la media de los errores cuadráticos es muy
+ parecida.
+\end_layout
+
+\begin_layout Standard
+La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Comparación-distro-kNN-LM"
+
+\end_inset
+
+ muestra una comparación de las distribuciones del error cuadrático para
+ el mismo conjuto de test.
+ Como puede observarse, las dos distribuciones son muy parecidas.
+ Esto induce a pensar que ninguno de los dos métodos usados sea mejor que
+ el otro.
+ En efecto, un test de 
+\emph on
+Kolmogorov–Smirnov
+\emph default
+ no puede negar, con un p-value de 0.77, que las muestras hayan sido extraídas
+ de la misma distribución.
+ El test de 
+\emph on
+Mann–Whitney–Wilcoxon
+\emph default
+ arroja un resultado parecido, con un p-value de 0.61.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename src/analysis/img/Rplot28.eps
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparación-puntos-kNN-LM"
+
+\end_inset
+
+Comparación entre 20 datos reales sus predicciones con k-NN y LM para el
+ modelo 
+\family typewriter
+\size footnotesize
+Rings ~ Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight
+ * Shell_weight.3
+\family default
+\size default
+ 
+\begin_inset Formula $(k=7)$
+\end_inset
+
+.
+ Aunque los errores tienen distintos valores para distintos puntos, la media
+ es muy parecida.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename src/analysis/img/Rplot29.svg
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Comparación-distro-kNN-LM"
+
+\end_inset
+
+Comparación entre las distribuciones de error cuadrático con k-NN y LM para
+ el modelo 
+\family typewriter
+\size footnotesize
+Rings ~ Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight
+ * Shell_weight.3
+\family default
+\size default
+ 
+\begin_inset Formula $(k=7)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A la hora de elegir un modelo para explicar el conjunto de datos estudiado
+ y realizar predicciones, debería usarse el modelo lineal que considera
+ las interacciones (
+\family typewriter
+\size footnotesize
+Rings ~ Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight
+ * Shell_weight.3
+\family default
+\size default
+).
+ Para realizar esta elección no sólo se ha tenido en cuenta que el MSE medidoha
+ sido ligeramente más bajo que el del correspondiente modelo k-NN, pues
+ ya hemos visto que la diferencia no es significativa y ésta se debe, probableme
+nte, a las particiones realizadas para la validación cruzada.
+ En cambio, la elección del modelo lineal se debe al hecho de que éste requiere
+ un menor coste computacional, tanto en el aprendizaje como en la predicción.
+ También cabe destacar que dicho modelo produce menos sobreajuste que su
+ equivalente k-NN, lo cuál puede verse al comparar los errores cuadráticos
+ medios en los conjunto de entrenamiento y de test.
+\end_layout
+
+\begin_layout Subsubsection
+Comparación genérica entre los modelos lineal, k-NN y M5'
+\end_layout
+
+\begin_layout Standard
+Para comparar si existen diferencias significativas entre los modelos lineal,
+ k-NN y M5', se han realizado diversos test estadísticos sobre los resultados
+ de validación cruzada de modelos que usan todas las variables en distintos
+ conjuntos de datos.
+\end_layout
+
+\begin_layout Standard
+En primer lugar, se ha estudiado si existe diferencia significativa entre
+ el modelo lineal y k-NN.
+ Para ello, se ha realizado un test de los rangos con signo de Wilkoxon.
+ El resultado, con un p-value de 0.77 es que no puede asegurarse que uno
+ de los dos métodos produzca menor MSE.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+R-
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+p-value
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+78
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+93
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.7660
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultado de aplicar el test de los rangos con signo de Wilkoxon a los resultado
+s de MSE estudiados.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para 
+\end_layout
+
+\begin_layout Standard
+Friedman test p-value 0.0338
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+p-value
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.67
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+—
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.16
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.16
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Wilcoxon!!
-\end_layout
-
-\begin_layout Standard
-En principio, no parece haber diferencia significativa entre los resultados.
- Tal vez el más apropiado sea LM con las interacciones, ya que parece que
- no se sobreajusta, produce unos resultados ligeramente mejores a los de
- kNN (al menos con las particiones realizadas para el Cross Validation)
- y es un modelo computacionalmente menos costoso (tanto de aprender como
- de aplicar).
 \end_layout
 
 \begin_layout Section
