@@ -6,4 +6,6 @@ datasets
 *.bib.bak
 *.bib.sav
 *.png
+*.svg
+*.eps
 
