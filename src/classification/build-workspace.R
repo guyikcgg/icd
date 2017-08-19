@@ -13,6 +13,8 @@ library(ggplot2)
 library(reshape)
 library(GGally)
 library(class)
+library(caret)
+library(MASS)
 
 #TAE
 
@@ -56,7 +58,11 @@ tae$Course     = factor(tae$Course)
 
 # Load traning data and test data
 tae.tra = list()
+tae.tra.cl = list()
+tae.tra.dt = list()
 tae.tst = list()
+tae.tst.cl = list()
+tae.tst.dt = list()
 for (i in 1:10) {
   for (j in 1:2) {
     filename = paste(
@@ -71,31 +77,22 @@ for (i in 1:10) {
       comment.char="@"
     )
     names(x) = names(tae)
+    # Everything except the Class will be 
+    # treated as numeric for classification
     x$Class      = factor(
       x$Class,
       levels = c(1,2,3),
       labels = c("low", "medium", "high")
     )
-    x$Native     = factor(
-      x$Native, 
-      levels = c(1,2), 
-      labels = c(
-        "English speaker", 
-        "non-English speaker"
-      )
-    )
-    x$Semester   = factor(
-      x$Semester, 
-      levels = c(1,2), 
-      labels = c("Summer", "Regular")
-    )
-    x$Instructor = factor(x$Instructor)
-    x$Course     = factor(x$Course)
     
     if(j==1) {
-      tae.tra[[i]] = x
+      tae.tra[[i]]    = x
+      tae.tra.dt[[i]] = subset(x, select = -Class)
+      tae.tra.cl[[i]] = x$Class
     } else {
-      tae.tst[[i]] = x
+      tae.tst[[i]]    = x
+      tae.tst.dt[[i]] = subset(x, select = -Class)
+      tae.tst.cl[[i]] = x$Class
     }
   }
 }
@@ -105,3 +102,32 @@ for (i in 1:10) {
 normalize = function(x) {
   return((x-min(x))/(max(x)-min(x)))
 }
+
+normalize.tae = function(df) {
+  df$Instructor = normalize(df$Instructor)
+  df$Course     = normalize(df$Course)
+  df$Size       = normalize(df$Size)
+  
+  return(df)
+}
+
+# Accuracy function
+accuracy = function(ConfusionMatrix) {
+  return(sum(diag(ConfusionMatrix))/sum(ConfusionMatrix))
+  
+  meanAccuracy     = 0
+  for (k in 1:ncol(ConfusionMatrix)) {
+    TP = ConfusionMatrix[k,k]
+    FP = sum(ConfusionMatrix[k,]) - TP
+    FN = sum(ConfusionMatrix[,k]) - TP
+    TN = sum(ConfusionMatrix[-k,-k])
+    Accuracy = (TP+TN)/(TP+TN+FP+FN)
+    
+    meanAccuracy = meanAccuracy + Accuracy/ncol(ConfusionMatrix)
+  }
+  return(meanAccuracy)
+}
+
+set.seed(1)
+
+rm(i, j, filename, x)
