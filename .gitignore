@@ -9,3 +9,4 @@ datasets
 *.svg
 *.eps
 
+.Rproj.user
