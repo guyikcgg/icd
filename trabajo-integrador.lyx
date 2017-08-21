@@ -29,6 +29,10 @@
 \paperfontsize default
 \spacing single
 \use_hyperref true
+\pdf_title "Trabajo Teórico/Práctico Integrador"
+\pdf_author "Cristian G Guerrero"
+\pdf_subject "Introducción a la Ciencia de Datos"
+\pdf_keywords "datascience, ugr, "
 \pdf_bookmarks true
 \pdf_bookmarksnumbered false
 \pdf_bookmarksopen false
@@ -38,7 +42,7 @@
 \pdf_colorlinks false
 \pdf_backref false
 \pdf_pdfusetitle true
-\papersize default
+\papersize a4paper
 \use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
@@ -63,6 +67,11 @@
 \selected 0
 \filename_suffix 0
 \color #faf0e6
+\end_branch
+\branch Source Code
+\selected 0
+\filename_suffix 0
+\color #d7faf8
 \end_branch
 \index Index
 \shortcut idx
@@ -115,6 +124,65 @@ LatexCommand tableofcontents
 Introducción
 \end_layout
 
+\begin_layout Standard
+Este es el Trabajo Teórico/Pŕactico Integrador de la asignatura 
+\emph on
+Introducción a la Ciencia de Datos
+\emph default
+, impartida en el 
+\emph on
+Máster en Ciencia de Datos e Ingeniería de Computadores
+\emph default
+ (DATCOM).
+ En el mismo, se desarrollan los ejercicios propuestos por los profesores,
+ aplicando los conocimientos adquiridos en la asignatura.
+ 
+\end_layout
+
+\begin_layout Standard
+La realización de este trabajo se ha llevado a cabo usando 
+\emph on
+RStudio
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "RStudio2017,racine2012rstudio"
+
+\end_inset
+
+, en su versión 0.99.903 - 
+\emph on
+R version 3.3.2 (2016-10-31)
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ihaka1996r"
+
+\end_inset
+
+.
+ La mayor parte de los gráficos han sido generados usando 
+\emph on
+ggplot2
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ggplot2,9780387981406"
+
+\end_inset
+
+, lo cuál se ha considerado una ampliación del apartado de visualización.
+\end_layout
+
+\begin_layout Standard
+Este trabajo, realizado de forma original por Cristian González Guerrero,
+ se presenta para su valoración en la evaluación extraordinara de Septiembre
+ de 2017.
+\end_layout
+
 \begin_layout Section
 Presentación de los datos
 \end_layout
@@ -134,7 +202,7 @@ nte su edad
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "alcala2011keel"
+key "alcala2011keel,Division1994"
 
 \end_inset
 
@@ -228,7 +296,7 @@ missing values
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -956,7 +1024,7 @@ reference "fig:Distribution-abalone"
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2581,7 +2649,7 @@ abalone
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -2921,10 +2989,10 @@ abalone
 \end_layout
 
 \begin_layout Standard
-En el ejercicio de regresión que usará estos datos, será conveniente hacerse
+En el ejercicio de regresión, que usará estos datos, será conveniente hacerse
  una idea de la correlación entre las distintas variables.
  Para ello, se ha calculado el coeficiente de correlación de Pearson entre
- las distintas variables numéricas, obteniendo la matriz de correlación
+ las distintas variables numéricas, obteniendo así la matriz de correlación
  de
 \begin_inset space ~
 \end_inset
@@ -2970,7 +3038,7 @@ reference "tab:Correlación-abalone"
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Tabular
@@ -4111,7 +4179,7 @@ abalone
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -4203,8 +4271,19 @@ reference "tab:tae-description"
  Como puede observarse en la tabla, todas las variables son categóricas,
  salvo el tamaño de la clase, que es un entero.
  El tipo de datos de la variable de salida es también categórico, pudiendo
- tomar tres valores distintos, por lo que tendremos que realizar una clasificaci
-ón con tres clases.
+ tomar tres valores distintos: 
+\emph on
+low
+\emph default
+, 
+\emph on
+medium
+\emph default
+ y 
+\emph on
+high
+\emph default
+, por lo que tendremos que realizar una clasificación con tres clases.
 \end_layout
 
 \begin_layout Standard
@@ -4680,6 +4759,604 @@ key "alcala2011keel,Lichman:2013"
 \end_inset
 
 .
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las medidas estadísticas sobre la variable numérica Size pueden observarse
+ en
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "tab:statistics-tae-numeric"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename src/analysis/img/Rplot39.eps
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename src/analysis/img/Rplot45.eps
+	width 55text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Conteo de variables categóricas.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename src/analysis/img/Rplot35.eps
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename src/analysis/img/Rplot34.eps
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Frecuencia absoluta y relativa de las ocurrencias de 
+\emph on
+Course
+\emph default
+ en función de su clase.
+ Los datos han sido ordenados para que las mayores frecuencias queden a
+ la izquierda.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename src/analysis/img/Rplot40.eps
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename src/analysis/img/Rplot44.eps
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Frecuencia absoluta y relativa de las ocurrencias de 
+\emph on
+Instructor
+\emph default
+ en función de su clase.
+ Los datos han sido ordenados para que las mayores frecuencias queden a
+ la izquierda.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="9">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Variable
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Min.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1st Qu.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Median
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Mean
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3rd Qu.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Max.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Var.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+SD
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27.93
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+37
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+66
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+166.83
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.92
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Instructor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.58
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+46.31
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.81
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Course
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.14
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49.49
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.03
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:statistics-tae-numeric"
+
+\end_inset
+
+Medidas estadísticas sobre la única variables cuantitativa de 
+\emph on
+tae
+\emph default
+.
+ Las dos últimas filas representan las mismas medidas estadísticas sobre
+ dos variables categóricas, a las que se han asignado etiquetas numéricas
+ empezando en el 1.
 \end_layout
 
 \end_inset
@@ -7025,7 +7702,7 @@ Length
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Tabular
@@ -7686,7 +8363,7 @@ El algoritmo de los k vecinos más cercanos (k-Nearest Neighbours) puede
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -7732,7 +8409,7 @@ Regresiones con el algoritmo k-NN, con cada regresor de forma individual
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Tabular
@@ -9955,7 +10632,7 @@ Se podrían probar otras métricas...
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Tabular
@@ -10722,7 +11399,7 @@ Regresiones kNN múltiples.
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -10848,7 +11525,7 @@ Mann–Whitney–Wilcoxon
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -10902,7 +11579,7 @@ Rings ~ Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -11230,8 +11907,35 @@ Clasificación sobre el conjunto de datos
 tae
 \end_layout
 
+\begin_layout Standard
+Tras haber visualizado los datos y haber explorado las (inexistentes) relaciones
+ entre las distintas variables de entrada (sección #), procedemos a aplicar
+ distintos algoritmos de clasificación sobre el conjunto de datos.
+ Para ello, se han utilizado en todo caso las particiones ya existentes,
+ que serán también utilizadas para la validación cruzada.
+\end_layout
+
 \begin_layout Subsection
 Clasificación mediante el algoritmo k-NN
+\end_layout
+
+\begin_layout Standard
+El algoritmo de los 
+\begin_inset Formula $k$
+\end_inset
+
+ vecinos más cercanos (k-NN) es un método no paramétrico que puede ser usado
+ en clasificación.
+ Tiene la principal ventaja de que suele conseguir muy buenas predicciones
+ y la fase de entrenamiento es muy eficiente.
+ Sin embargo, k-NN no produce un modelo para explicar el conjunto de datos,
+ y la etapa de predicción es computacionalmente costosa.
+\end_layout
+
+\begin_layout Standard
+Cabe destacar que, puesto que el principio básico de k-NN supone medir la
+ distancia de un elemento a sus k elementos más cercanos, es necesario definir
+ una métrica y es conveniente que las variables de entrada estén normalizadas.
 \end_layout
 
 \begin_layout Standard
@@ -12229,6 +12933,10 @@ Apéndice 1 - Código fuente: Análisis de datos
 \end_layout
 
 \begin_layout Subsection
+\begin_inset Branch Source Code
+status open
+
+\begin_layout Subsection
 Código fuente usado en la visualización de los datos 
 \emph on
 abalone
@@ -12481,11 +13189,6 @@ End Of File 'classification'caret.R'
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "src/classification/classification.R"
-
 \end_inset
 
 
@@ -12494,6 +13197,7 @@ filename "src/classification/classification.R"
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
+btprint "btPrintAll"
 bibfiles "icd"
 options "bibtotoc,unsrt"
 
