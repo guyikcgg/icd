@@ -35,6 +35,7 @@ detach(tae)
 # Get summarized information
 str(tae)      # Structure
 summary(tae)  # Statistical measurements
+summary(tae.original)
 
 # By taking a look to the file, it is clear that 
 # the output variable is Class, thus we have to 
@@ -48,16 +49,29 @@ myData = melt.data.frame(
 )
 
 # Boxplots of numeric variables
-ggplot(myData, aes(factor(variable), value)) +
-  xlab("") + ylab("") + geom_boxplot() + coord_flip() +
-  facet_wrap( ~ Class, ncol=1)
+ggplot(myData, aes(factor(variable), value, fill = Class)) +
+  xlab("") + ylab("Size") + geom_boxplot() + coord_flip()
 
 # Distributions of Size
 ggplot(myData, aes(value, colour = Class)) +
   geom_freqpoly(bins = 7) + xlab("Size")
 
 
-# Barplots of factors
+# Visualize pseudo-numeric variables
+myData = melt.data.frame(
+  data = subset(tae.original, select = c(Class, Course, Instructor)),
+  id.vars = "Class"
+)
+ggplot(myData, aes(factor(variable), value, fill = Class)) +
+  xlab("") + ylab("number") + geom_boxplot() + coord_flip()
+ggplot(myData, aes(value, colour = Class)) +
+  geom_freqpoly(bins = 10) + xlab("") + facet_wrap(~ variable, ncol = 1)
+
+#######################
+# Barplots of factors #
+#######################
+
+## Native & Semester
 myData = melt.data.frame(
   data = subset(tae, select = c(-Size, -Instructor, -Course)),
   id.vars = "Class"
@@ -65,49 +79,72 @@ myData = melt.data.frame(
 
 ggplot(myData, aes(value, fill = Class)) +
   geom_bar(stat = "count", position = "dodge") + 
-  facet_wrap(~ variable, ncol = 1, scales = "free")
+  xlab("") +
+  facet_wrap(~ variable, ncol = 2, scales = "free")
 
 
+## Class
+ggplot(tae, aes(Class, fill = Class)) +
+  geom_bar(stat = "count")
 
+
+## Course
+freq = ave(rep(1, times=nrow(tae)), tae$Course, FUN=sum)
+myData = tae[order(freq, tae$Course, decreasing = TRUE), ]
 myData = melt.data.frame(
-  data = subset(tae, select = c(Class, Course, Instructor)),
+  data = subset(myData, select = c(Class, Course)),
   id.vars = "Class"
 )
 
 ggplot(myData, aes(value, fill = Class)) +
-  geom_bar(stat = "count") + 
-  facet_wrap(~ variable, ncol = 1, scales = "free")
+  geom_bar(stat = "count", position = "dodge") + 
+  xlab("Course") +
+  scale_x_discrete(
+    limits = as.factor(
+      order(
+        count(tae, "Course")$freq,
+        decreasing = T
+      )
+    )
+  )
 
 
+myData = as.data.frame(table(tae$Class, tae$Course))
+names(myData) = c("Class", "Course", "freq")
+freq = ave(myData$freq, myData$Course, FUN = sum)
+myData = myData[order(freq, myData$Course, decreasing = TRUE), ]
+ggplot(myData, aes(x = Course, y = freq, color = Class)) +
+  geom_point() + 
+  geom_line(aes(group = Class)) +
+  scale_x_discrete(limits = myData$Course) +
+  ylab("Frequency")
 
-myData = melt.data.frame(
-  data = subset(tae, select = c(Class, Course)),
-  id.vars = "Class"
-)
-ggplot(myData, aes(value, fill = Class)) +
-  geom_bar(stat = "count", width = 0.9) + 
-  facet_wrap(~ value, ncol = 7, scales = "free") +
-  xlab("Course")
+myData$rel.freq = myData$freq/freq[order(freq, myData$Course, decreasing = TRUE)]
+ggplot(myData, aes(x = Course, y = rel.freq, fill = Class)) +
+  geom_col(width = 2.5) +
+  scale_x_discrete(limits = myData$Course) +
+  ylab("Relative frequency")
 
 
+## Instructor
+myData = as.data.frame(table(tae$Class, tae$Instructor))
+names(myData) = c("Class", "Instructor", "freq")
+freq = ave(myData$freq, myData$Instructor, FUN = sum)
+myData = myData[order(freq, myData$Instructor, decreasing = TRUE), ]
+myData[myData$freq==0,]$freq = 0.03
+ggplot(myData, aes(x = Instructor, y = freq))  + 
+  geom_col(width = 2, position = "dodge", aes(fill = Class)) +
+  scale_x_discrete(limits = myData$Instructor) +
+  ylab("Frequency")
 
-myData = melt.data.frame(
-  data = subset(tae, select = c(Class, Instructor)),
-  id.vars = "Class"
-)
-ggplot(myData, aes(value, fill = Class)) +
-  geom_bar(stat = "count", width = 0.9) + 
-  facet_wrap(~ value, ncol = 7, scales = "free") +
-  xlab("Instructor")
+myData[myData$freq==0.03,]$freq = 0
+myData$rel.freq = myData$freq/freq[order(freq, myData$Instructor, decreasing = TRUE)]
+ggplot(myData, aes(x = Instructor, y = rel.freq, fill = Class)) +
+  geom_col(width = 2.5) +
+  scale_x_discrete(limits = myData$Instructor) +
+  ylab("Relative frequency")
 
 ggplot(tae, aes(as.integer(Instructor), color = Class)) +
   geom_density()
 ggplot(tae, aes(as.integer(Course), color = Class)) +
   geom_density()
-
-# Data is heterogeneous
-
-
-
-ggplot(tae, aes(x = Course, y = Instructor, color = Class)) +
-  geom_point()
