@@ -24,6 +24,11 @@ tae2$Course = as.integer(tae$Course)
 #ggpairs(tae2, aes(color = Class, alpha = 0.3))
 
 
+
+################################
+# k Nearest Neighbourgs (k-NN) #
+################################
+
 # Apply k-NN algorithm to the first set
 tae_test_pred = knn(
   train = tae.tra.dt[[1]], # Dataframe
@@ -32,11 +37,12 @@ tae_test_pred = knn(
   k     = 21
 )
 
-# See the results in a contingency table (confusion matrix)
+# See the results on a contingency table (confusion matrix)
 table(tae_test_pred, tae.tst.cl[[1]])
 
 # Apply k-NN algorithm to every dataset and check the 
-# overall accuracy for several values of k
+# overall accuracy for several values of k. Repeat this process
+# m times, to get the random part working.
 k.max = 35
 Acc = data.frame(k = 1:k.max)
 for (m in 1:9) {
@@ -71,11 +77,56 @@ which.max(Acc$Acc_mean)
 
 ggplot(myData, aes(x = k, y = value, color = variable, size = lineSize)) + 
   geom_line() + scale_size(range = c(0.5, 2), guide="none") + ylab("Accuracy")
-## It seems that k=17 performs the best, with Acc = 0.55
+## It seems that k=1 performs the best, with Acc = 0.61
 # This plot could also be done with training data, to test for overfitting
 
 
-# Linear Discriminant Analysis (LDA)
+# Fill in the table in the document
+Acc = matrix(ncol = 10, nrow = 10)
+rownames(Acc) = paste("K", 1:10, sep = "")
+colnames(Acc) = c(paste("Acc", 1:9, sep = ""), "Acc_mean")
+Kappa = matrix(ncol = 10, nrow = 10)
+rownames(Kappa) = paste("K", 1:10, sep = "")
+colnames(Kappa) = c(paste("Kappa", 1:9, sep = ""), "Kappa_mean")
+for (m in 1:9) {
+    myAcc   = rep(0, 10)
+    myKappa = rep(0, 10)
+    for (i in 1:10) {
+      tae_test_pred = knn(
+        train = tae.tra.dt[[i]], # Dataframe
+        test  = tae.tst.dt[[i]], # Dataframe
+        cl    = tae.tra.cl[[i]], # Vector (factor)
+        k     = 1
+      )
+      cm = confusionMatrix(
+        table(tae_test_pred, tae.tst.cl[[i]])
+      )
+      myAcc[i]   = cm$overall[1]
+      myKappa[i] = cm$overall[2]
+    }
+    Acc[,m]   = myAcc
+    Kappa[,m] = myKappa
+}
+Acc[,10] = rowMeans(Acc[,1:9])
+Kappa[,10] = rowMeans(Kappa[,1:9])
+
+
+######################################
+# Linear Discriminant Analysis (LDA) #
+######################################
+
+# Check for normality of (pseudo-)numeric variables
+sapply(tae.original[1:5], shapiro.test)
+
+myData = melt.data.frame(
+  data = tae.original,
+  measure.vars = c("Native", "Instructor", "Course", "Semester", "Size")
+)
+ggplot(myData) + 
+  stat_qq(aes(sample = value)) + 
+  facet_wrap(~variable, ncol = 2, scales = "free")
+
+# LDA fit
 lda.fit = lda(
   Class ~ .,
   data = tae.tra[[1]]
@@ -123,7 +174,9 @@ partimat(Class~Instructor+Course, data = tae.tra[[1]], method = "lda")
 
 
 
-# Quadratic Discriminant Analysis (QDA)
+#########################################
+# Quadratic Discriminant Analysis (QDA) #
+#########################################
 qda.fit = qda(
   Class ~ .,
   data = tae.tra[[1]]
@@ -164,4 +217,5 @@ partimat(Class~Instructor+Course, data = tae.tra[[1]], method = "qda")
 
 
 # Algorithm comparison
+
 
