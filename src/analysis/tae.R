@@ -44,8 +44,8 @@ summary(tae.original)
 
 # Visualize numerical variables
 myData = melt.data.frame(
-  data = subset(tae, select = c(Class, Size)),
-  id.vars = "Class"
+  data = subset(tae, select = c(Class, Size, Native, Semester)),
+  id.vars = c("Class", "Native", "Semester")
 )
 
 # Boxplots of numeric variables
@@ -53,9 +53,24 @@ ggplot(myData, aes(factor(variable), value, fill = Class)) +
   xlab("") + ylab("Size") + geom_boxplot() + coord_flip()
 
 # Distributions of Size
-ggplot(myData, aes(value, colour = Class)) +
-  geom_freqpoly(bins = 7) + xlab("Size")
+ggplot(myData, aes(value)) +
+  geom_freqpoly(bins = 8, aes(colour = Class)) +
+  xlab("Size") + xlim(c(0,70))
 
+ggplot(myData, aes(value)) +
+  geom_freqpoly(bins = 8, aes(colour = Semester)) +
+  xlab("Size") + xlim(c(0,70))
+ggplot(myData, aes(value)) +
+  geom_freqpoly(bins = 8, aes(colour = Native)) +
+  xlab("Size") + xlim(c(0,70))
+ks.test(
+  subset(tae, subset = Semester=="Summer")$Size,
+  subset(tae, subset = Semester=="Regular")$Size
+)
+ks.test(
+  subset(tae, subset = Native=="English speaker")$Size,
+  subset(tae, subset = Native=="non-English speaker")$Size
+)
 
 # Visualize pseudo-numeric variables
 myData = melt.data.frame(
@@ -65,7 +80,7 @@ myData = melt.data.frame(
 ggplot(myData, aes(factor(variable), value, fill = Class)) +
   xlab("") + ylab("number") + geom_boxplot() + coord_flip()
 ggplot(myData, aes(value, colour = Class)) +
-  geom_freqpoly(bins = 10) + xlab("") + facet_wrap(~ variable, ncol = 1)
+  geom_freqpoly(bins = 10) + xlab("number") + facet_wrap(~ variable, ncol = 1)
 
 #######################
 # Barplots of factors #

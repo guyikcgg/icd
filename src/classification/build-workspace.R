@@ -15,6 +15,7 @@ library(GGally)
 library(class)
 library(caret)
 library(MASS)
+library(plyr)
 
 #TAE
 
@@ -39,6 +40,7 @@ tae$Class      = factor(
   levels = c(1,2,3),
   labels = c("low", "medium", "high")
 )
+tae.original = tae
 tae$Native     = factor(
   tae$Native, 
   levels = c(1,2), 
