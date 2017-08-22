@@ -106,8 +106,10 @@ normalize = function(x) {
 }
 
 normalize.tae = function(df) {
-  df$Instructor = normalize(df$Instructor)
-  df$Course     = normalize(df$Course)
+  df$Instructor = df$Instructor*4
+  df$Course     = df$Course*4
+  df$Native     = df$Native*4
+  df$Semester   = df$Semester
   df$Size       = normalize(df$Size)
   
   return(df)
