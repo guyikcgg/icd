@@ -13,7 +13,8 @@ abalone = abalone[abalone$Height<0.3,]
 # Get simple knn models
 simple.knn.fit = list()
 for (i in 1:(length(abalone)-1)) {
-  simple.knn.fit[[i]] = kknn(abalone$Rings~abalone[,i], abalone, abalone)
+  simple.knn.fit[[i]] = 
+    kknn(abalone$Rings~abalone[,i], abalone, abalone)
   names(simple.knn.fit)[i] = names(abalone)[i]
 }
 
@@ -37,8 +38,14 @@ b = "Prediction"
 colorPalette <- c("#000000", "#56B4E9")
 
 ggplot(myData) + 
-  geom_point(aes(x = value, y = Rings, color = Data), alpha = 0.03) + 
-  geom_point(aes(x = value, y = Prediction, color = b), alpha = 0.03) + 
+  geom_point(
+    aes(x = value, y = Rings, color = Data),
+    alpha = 0.03
+  ) + 
+  geom_point(
+    aes(x = value, y = Prediction, color = b), 
+    alpha = 0.03
+  ) + 
   facet_wrap( ~ variable, ncol = 2, scales = "free") + 
   xlab("") +
   scale_colour_manual(values=colorPalette) +
@@ -114,7 +121,11 @@ abalone.tra = lapply(abalone.tra, function(df){return(df[,1:9])})
 abalone.tst = lapply(abalone.tst, function(df){return(df[,1:9])})
 MSE.record = data.frame()
 
-knn.MSE.data.frame = function(model = Rigns~., k = 1:20, i = 1:5, tt = c("train", "test")) {
+knn.MSE.data.frame = function(
+  model = Rigns~., 
+  k = 1:20, i = 1:5, 
+  tt = c("train", "test")
+) {
   MSE = data.frame(k)
   tt_ = tt
   i_  = i
@@ -236,5 +247,5 @@ myData = melt.data.frame(
 myData$Data = paste(myData$Data, " in ", myData$model)
 
 ggplot(myData, aes(x = k, y = value, color = Data)) + 
-  geom_point() + geom_line () + ylab("MSE") + theme(legend.position = "bottom", legend.direction = "vertical")
-
+  geom_point() + geom_line () + ylab("MSE") + 
+  theme(legend.position = "bottom", legend.direction = "vertical")

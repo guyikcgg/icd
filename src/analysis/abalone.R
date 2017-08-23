@@ -85,10 +85,13 @@ ggplot(meltData, aes(factor(variable), value)) +
   facet_wrap( ~ Measure, ncol=1, scales="free")
 
 # Distribution of rings
-ggplot(abalone, aes(Rings, fill = Sex, color = Sex)) + geom_freqpoly(bins = 29)
+ggplot(abalone, aes(Rings, fill = Sex, color = Sex)) + 
+  geom_freqpoly(bins = 29)
 ggplot(abalone, aes(Sex, Rings, fill = Sex)) + geom_boxplot()
-ggplot(abalone, aes(Rings, fill = Sex, color = Sex)) + stat_ecdf(bins = 29) + ylab("CDF")
-ggplot(abalone, aes(Rings, fill = Sex, color = Sex)) + stat_density(alpha = .8)
+ggplot(abalone, aes(Rings, fill = Sex, color = Sex)) + 
+  stat_ecdf() + ylab("CDF")
+ggplot(abalone, aes(Rings, fill = Sex, color = Sex)) + 
+  stat_density(alpha = .8)
 
 # Distribution of numeric variables against sex
 # Remove outlayers
@@ -97,8 +100,8 @@ ggplot(abalone.reshaped, aes(value, colour = Sex)) +
   geom_freqpoly(bins = 29) +
   facet_wrap( ~ variable, ncol = 2, scales="free")
 
-# Histograms show that Male-Female distinction is not relevant, and
-# does not characterize any of the above variables.
+# Histograms show that Male-Female distinction is not relevant, 
+# and does not characterize any of the above variables.
 # Nonetheless, Infants' dimensions are usually lower,
 # as is their age.
 # Statistical test is needed to confirm this statement.
@@ -114,7 +117,9 @@ myData[myData$variable=="Height",] =
     value = jitter(value, factor = 3)
   }
 )
-ggplot(myData, aes(x = value, y = Rings)) + geom_jitter(alpha = 0.03) + facet_wrap( ~ variable, ncol = 2, scales = "free")
+ggplot(myData, aes(x = value, y = Rings)) + 
+  geom_jitter(alpha = 0.03) + 
+  facet_wrap( ~ variable, ncol = 2, scales = "free")
 
 
 # Check whether the Rings distributions are the same
@@ -123,10 +128,19 @@ summary(abalone[abalone$Sex=="F",]$Rings)
 mean(abalone[abalone$Sex=="M",]$Rings)
 summary(abalone[abalone$Sex=="M",]$Rings)
 
-ks.test(abalone[abalone$Sex=="M",]$Rings,abalone[abalone$Sex=="F",]$Rings)
-# In the studied sample, there are more old females than old males. Actually, the distributions can be proved to not be the same.
+ks.test(
+  abalone[abalone$Sex=="M",]$Rings,
+  abalone[abalone$Sex=="F",]$Rings
+)
+# In the studied sample, there are more old females than 
+# old males. Actually, the distributions can be proved not
+# to be the same.
 # This can indicate that females usually live longer than males.
-# This fact must be taken into account to test if there is any secondary sex charasteristic,
-# i.e. it does not suffice to test wheter length distribution in females is the same than length distribution in males,
-# it is necessary to test this taking age into account.
-# From the minimum age of both female and male, it can be suspected that primary sex characteristics are easier detected on males.
+# This fact should be taken into account to test if there is 
+# any secondary sex charasteristic, i.e. it does not suffice to 
+# test wheter length distribution in females is the same than 
+# length distribution in males, it is necessary to test this 
+# taking age into account.
+# From the minimum age of both female and male, it can be 
+# suspected that primary sex characteristics are easier 
+# detected on males.

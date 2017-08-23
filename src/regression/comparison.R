@@ -32,8 +32,19 @@ myResult = predict(myFit, myTest)
 
 myData1 = myTest
 myData1$Rings = myResult
-myData1 = cbind(myData1, data.type = "prediction", method = "Linear Model")
-myData1 = rbind(myData1, cbind(myTest, data.type = "original value", method = "Linear Model"))
+myData1 = cbind(
+  myData1, 
+  data.type = "prediction", 
+  method = "Linear Model"
+)
+myData1 = rbind(
+  myData1, 
+  cbind(
+    myTest, 
+    data.type = "original value", 
+    method = "Linear Model"
+  )
+)
 myData1 = melt.data.frame(
   data = myData1,
   id.vars = c("Shell_weight", "data.type", "method"),
@@ -46,8 +57,19 @@ myResult = kknn(myModel, myTrain, myTest, k = 7)
 
 myData2 = myTest
 myData2$Rings = myResult$fitted.values
-myData2 = cbind(myData2, data.type = "prediction", method = "k-NN")
-myData2 = rbind(myData2, cbind(myTest, data.type = "original value", method = "k-NN"))
+myData2 = cbind(
+  myData2, 
+  data.type = "prediction", 
+  method = "k-NN"
+)
+myData2 = rbind(
+  myData2, 
+  cbind(
+    myTest, 
+    data.type = "original value", 
+    method = "k-NN"
+  )
+)
 myData2 = melt.data.frame(
   data = myData2,
   id.vars = c("Shell_weight", "data.type", "method"),
@@ -58,7 +80,10 @@ myData2 = melt.data.frame(
 ## Plot
 myData = rbind(myData1, myData2)
 
-ggplot(myData, aes(x = Shell_weight, y = value, color = data.type)) + 
+ggplot(
+  myData,
+  aes(x = Shell_weight, y = value, color = data.type)
+) + 
   geom_point() + 
   ylab("Rings") +
   xlab("Shell weight") + 
@@ -69,21 +94,22 @@ ggplot(myData, aes(x = Shell_weight, y = value, color = data.type)) +
 
 # Error distribution
 myTest = abalone.tst[[1]]
-lmErrors  = myTest$Rings-predict(myFit, myTest)
-knnErrors = myTest$Rings-kknn(myModel, myTrain, myTest)$fitted.values
-
-myData1 = data.frame(method = "Linear Model", Err = lmErrors)
-myData2 = data.frame(method = "k-NN", Err = knnErrors)
-myData = melt.data.frame(
-  data = rbind(myData1, myData2),
-  id.vars = "method"
-)
+lmErrors  = 
+  myTest$Rings-predict(myFit, myTest)
+knnErrors = 
+  myTest$Rings-kknn(myModel, myTrain, myTest)$fitted.values
 
 ### Tests
 wilcox.test(lmErrors^2, knnErrors^2, paired = FALSE)
 ks.test(lmErrors^2, knnErrors^2)
 
 ### Plot
+myData1 = data.frame(method = "Linear Model", Err = lmErrors)
+myData2 = data.frame(method = "k-NN", Err = knnErrors)
+myData = melt.data.frame(
+  data = rbind(myData1, myData2),
+  id.vars = "method"
+)
 ggplot(myData, aes(x=value^2)) + 
   geom_density(aes(color = method, fill = method), alpha = 0.3) +
   xlab("Squared error") + xlim(0,20)
@@ -147,3 +173,4 @@ pairwise.wilcox.test(
 
 #### M5' seems to work better (confidence: 84%)
 #### LM and kNN seems not to present any difference
+

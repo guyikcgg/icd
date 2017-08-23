@@ -74,13 +74,18 @@ ks.test(
 
 # Visualize pseudo-numeric variables
 myData = melt.data.frame(
-  data = subset(tae.original, select = c(Class, Course, Instructor)),
+  data = subset(
+    tae.original, 
+    select = c(Class, Course, Instructor)
+  ),
   id.vars = "Class"
 )
 ggplot(myData, aes(factor(variable), value, fill = Class)) +
   xlab("") + ylab("number") + geom_boxplot() + coord_flip()
 ggplot(myData, aes(value, colour = Class)) +
-  geom_freqpoly(bins = 10) + xlab("number") + facet_wrap(~ variable, ncol = 1)
+  geom_freqpoly(bins = 10) + xlab("number") + 
+  facet_wrap(~ variable, ncol = 1)
+
 
 #######################
 # Barplots of factors #
@@ -134,7 +139,8 @@ ggplot(myData, aes(x = Course, y = freq, color = Class)) +
   scale_x_discrete(limits = myData$Course) +
   ylab("Frequency")
 
-myData$rel.freq = myData$freq/freq[order(freq, myData$Course, decreasing = TRUE)]
+myData$rel.freq = 
+  myData$freq/freq[order(freq, myData$Course, decreasing = T)]
 ggplot(myData, aes(x = Course, y = rel.freq, fill = Class)) +
   geom_col(width = 2.5) +
   scale_x_discrete(limits = myData$Course) +
@@ -145,7 +151,8 @@ ggplot(myData, aes(x = Course, y = rel.freq, fill = Class)) +
 myData = as.data.frame(table(tae$Class, tae$Instructor))
 names(myData) = c("Class", "Instructor", "freq")
 freq = ave(myData$freq, myData$Instructor, FUN = sum)
-myData = myData[order(freq, myData$Instructor, decreasing = TRUE), ]
+myData = 
+  myData[order(freq, myData$Instructor, decreasing = T), ]
 myData[myData$freq==0,]$freq = 0.03
 ggplot(myData, aes(x = Instructor, y = freq))  + 
   geom_col(width = 2, position = "dodge", aes(fill = Class)) +
@@ -153,7 +160,8 @@ ggplot(myData, aes(x = Instructor, y = freq))  +
   ylab("Frequency")
 
 myData[myData$freq==0.03,]$freq = 0
-myData$rel.freq = myData$freq/freq[order(freq, myData$Instructor, decreasing = TRUE)]
+myData$rel.freq = 
+  myData$freq/freq[order(freq, myData$Instructor, decreasing = T)]
 ggplot(myData, aes(x = Instructor, y = rel.freq, fill = Class)) +
   geom_col(width = 2.5) +
   scale_x_discrete(limits = myData$Instructor) +

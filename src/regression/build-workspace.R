@@ -72,7 +72,13 @@ for (i in 1:5) {
 # FUNCTIONS
 
 # Run k-fold cross validation on LM fit
-run_lm_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.,  tt = "test") {
+run_lm_fold = function(
+  i, 
+  tra = abalone.tra, 
+  tst = abalone.tst, 
+  model = Rings~.,  
+  tt = "test"
+) {
   x_tra = tra[[i]]
   x_tst = tst[[i]]
   
@@ -92,7 +98,14 @@ run_lm_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.,
 }
 
 
-run_knn_fold = function(i, tra = abalone.tra, tst = abalone.tst, model = Rings~.,  tt = "test", ...) {
+run_knn_fold = function(
+  i, 
+  tra = abalone.tra, 
+  tst = abalone.tst, 
+  model = Rings~., 
+  tt = "test", 
+  ...
+) {
   x_tra = tra[[i]]
   x_tst = tst[[i]]
   

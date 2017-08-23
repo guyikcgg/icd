@@ -16,6 +16,8 @@ library(class)
 library(caret)
 library(MASS)
 library(plyr)
+library(ISLR)
+library(klaR)
 
 #TAE
 

@@ -40,7 +40,8 @@ for (tt in colnames(MSE)) {
   }
 }
 
-# Using the shell weight seems to be the best model, since it produces less error.
+# Using the shell weight seems to be the best model, 
+# since it produces less error.
 
 # Scatterplots
 myData = melt.data.frame(
@@ -130,9 +131,17 @@ names(selected.fields) = c(
   "Shell_weight.3"
 )
 
-ggplot(subset(myData, variable %in% names(selected.fields)), aes(x = value, y = Rings)) + 
+ggplot(
+  subset(myData, variable %in% names(selected.fields)),
+  aes(x = value, y = Rings)
+) + 
   geom_jitter(alpha = 0.03) + geom_smooth(method = lm) +
-  facet_wrap( ~ variable, ncol = 2, scales = "free", labeller = as_labeller(selected.fields)) + 
+  facet_wrap( 
+    ~ variable, 
+    ncol = 2, 
+    scales = "free", 
+    labeller = as_labeller(selected.fields)
+  ) + 
   xlab("")
 
 # Linear regression using multiple variables
@@ -227,6 +236,6 @@ summary(myFit)
 MSE = matrix(nrow = 1, ncol = 2)
 colnames(MSE) = c("train", "test")
 for (tt in colnames(MSE)) {
-  MSE[1, tt] = mean(sapply(1:5, run_lm_fold, model = myModel, tt = tt))
+  MSE[1, tt] = 
+    mean(sapply(1:5, run_lm_fold, model = myModel, tt = tt))
 }
-
