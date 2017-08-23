@@ -69,7 +69,7 @@
 \color #faf0e6
 \end_branch
 \branch Source Code
-\selected 0
+\selected 1
 \filename_suffix 0
 \color #d7faf8
 \end_branch
@@ -151,7 +151,19 @@ key "RStudio2017,racine2012rstudio"
 
 \end_inset
 
-, en su versión 0.99.903 - 
+, 
+\emph on
+en su
+\emph default
+ 
+\emph on
+versión
+\emph default
+ 
+\emph on
+0.99.903
+\emph default
+ - 
 \emph on
 R version 3.3.2 (2016-10-31)
 \emph default
@@ -167,13 +179,17 @@ key "ihaka1996r"
 \emph on
 ggplot2
 \emph default
- 
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ggplot2,9780387981406"
 
 \end_inset
 
+
+\emph on
+, en su versión 2.2.1
+\emph default
 , lo cuál se ha considerado una ampliación del apartado de visualización.
 \end_layout
 
@@ -184,7 +200,7 @@ Este trabajo, realizado de forma original por Cristian González Guerrero,
 \end_layout
 
 \begin_layout Section
-Presentación de los datos
+Presentación y visualización de los datos
 \end_layout
 
 \begin_layout Standard
@@ -260,6 +276,12 @@ reference "sec:appendix-analysis"
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:abalone-visualization"
+
+\end_inset
+
 abalone
 \end_layout
 
@@ -3015,7 +3037,7 @@ reference "tab:Correlación-abalone"
 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "fig:scatterplot-rings-abalone"
+reference "fig:abalone-rings-scatterplot"
 
 \end_inset
 
@@ -4199,7 +4221,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:scatterplot-rings-abalone"
+name "fig:abalone-rings-scatterplot"
 
 \end_inset
 
@@ -4233,6 +4255,12 @@ En vista de las medidas de correlación realizadas, podemos concluir que
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:tae-visualization"
+
+\end_inset
+
 tae
 \begin_inset space ~
 \end_inset
@@ -4293,6 +4321,7 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="4">
 <features tabularvalignment="middle">
@@ -4783,7 +4812,7 @@ Size
 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "tab:statistics-tae-numeric"
+reference "tab:tae-numeric-variables-statistics"
 
 \end_inset
 
@@ -5244,7 +5273,7 @@ Course
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:statistics-tae-numeric"
+name "tab:tae-numeric-variables-statistics"
 
 \end_inset
 
@@ -5550,8 +5579,8 @@ Volviendo a las variables categóricas comentadas anteriormente, debe decirse
  diferentes.
  El número de asistentes que ha impartido clases en cada curso y con cada
  instructor ha sido variable.
- El número de los cursos y de los instructores ha sido dado de forma arbitraria,
- de forma que los datos no presentan un orden.
+ El valor numérico de cada curso y de cada instructor ha sido dado de manera
+ arbitraria, de forma que los datos no presentan un orden.
  En la figura
 \begin_inset space ~
 \end_inset
@@ -5569,14 +5598,19 @@ Course
 \family default
 , esto es, el número de asistentes que ha impartido clases en cada curso,
  ordenadas de mayor a menor.
- Junto a la frecuencia absoluta, se ha representado la frecuencia relativa,
- donde puede observarse que el rendimiento no depende del número de asistentes
- que haya tenido el curso.
+ Como puede observarse, no hay un orden específico en el eje de abscisas,
+ ni tampoco una distribución clara de los datos.
+ Junto a la frecuencia absoluta, se ha representado la frecuencia relativa
+ de cada clase, es decir, el número de asistentes con rendimiento alto,
+ medio y bajo en proporción al número de asistentes en cada curso.
+ En este caso, puede observarse que el rendimiento no depende del número
+ de asistentes que haya tenido el curso, puesto que los valores no siguen
+ ninguna tendencia en concreto.
  Este mismo análisis se ha realizado para la variable 
 \family typewriter
 Instructor
 \family default
-, con un resultado equivalente (ver figura
+, obteniendo las mismas conclusiones (ver figura
 \begin_inset space ~
 \end_inset
 
@@ -5591,13 +5625,14 @@ reference "fig:tae-instructor-cool-plots"
 \end_layout
 
 \begin_layout Standard
-Algo que llama la atención de este análisis es que mientras que hay cursos
- e instructores que presentan resultados muy buenos, muy malos o medios,
- otros tienen una mezcla.
- Esto se debe al número de asistentes que han dado clase en ese curso o
- con ese instructor.
- Cuando un número elevado de registros (muchos asistentes), los resultados
- de rendimiento suelen estar divididos.
+Un hecho que puede llamar la atención de este análisis es la existencia
+ de cursos e instructores con resultados 100% buenos (barritas azules),
+ 100% malos (barritas rojas), 100% medios (barritas verdes) o mezcla (barritas
+ de varios colores).
+ Esto se debe, en parte, al número de asistentes que han dado clase en cada
+ curso o con cada instructor.
+ Cuando se tiene un número elevado de registros (muchos asistentes), los
+ resultados de rendimiento suelen estar divididos.
  La tabla
 \begin_inset space ~
 \end_inset
@@ -5605,7 +5640,7 @@ Algo que llama la atención de este análisis es que mientras que hay cursos
 
 \begin_inset CommandInset ref
 LatexCommand formatted
-reference "tab:tae-recuento-dummy"
+reference "tab:tae-mixed-class-count"
 
 \end_inset
 
@@ -5639,7 +5674,7 @@ reference "fig:tae-instructor-cool-plots"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -5698,7 +5733,7 @@ Course
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -5753,7 +5788,7 @@ Instructor
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -6008,7 +6043,7 @@ high
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:tae-recuento-dummy"
+name "tab:tae-mixed-class-count"
 
 \end_inset
 
@@ -6025,10 +6060,72 @@ Recuento del número de grupos e instructores en función del rendimiento.
 
 \end_layout
 
+\begin_layout Standard
+Como conclusión, hay que decir que se trata de un ejercicio de clasificación
+ muy complicado.
+ Esto se debe a que la mayor parte de las entradas son categóricas, mientras
+ que los algoritmos de clasificación suelen esperar variables numéricas,
+ y a la poca relación vista entre las distintas variables.
+ Teniendo esto en cuenta, es posible predecir un rendimiento pobre en la
+ clasificación.
+\end_layout
+
 \begin_layout Section
 Regresión sobre el conjunto de datos 
 \emph on
 abalone
+\end_layout
+
+\begin_layout Standard
+Tras haber visualizado los datos y haber explorado las posibles relaciones
+ entre las distintas variables de entrada (ver sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:abalone-visualization"
+
+\end_inset
+
+), procedemos a aplicar la regresión lineal sobre el conjunto de datos.
+ Para ello, se han explorado diversos modelos, que van desde la regresión
+ lineal simple hasta modelos que contemplan las no linealidades e interacciones
+ entre las variables.
+ Posteriormente, se ha experimentado la regresión con el algoritmo k-NN.
+ En este caso, se han evaluado los modelos encontrados con la regresión
+ lineal.
+\end_layout
+
+\begin_layout Standard
+En todos los casos, la bondad de las regresiones se ha medido usando validación
+ cruzada con el método 
+\emph on
+k-fold cross validation
+\emph default
+.
+ De esta forma, ha sido posible medir el error cuadrático medio sobre el
+ conjunto de test en cada regresión 
+\begin_inset Formula $MSE_{tst}$
+\end_inset
+
+, realizando una media sobre los distintos conjuntos de test 
+\begin_inset Formula $\overline{MSE}_{tst}$
+\end_inset
+
+.
+ El error cuadrático medio sobre el conjunto de entrenamiento 
+\begin_inset Formula $MSE_{tra}$
+\end_inset
+
+ ha sido de utilidad para la evaluación del sobreajuste (
+\emph on
+overfitting
+\emph default
+).
+ Para la ejecución de la validación cruzada se ha hecho uso de las particiones
+ ya existentes.
 \end_layout
 
 \begin_layout Subsection
@@ -6036,15 +6133,28 @@ Regresión lineal simple
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Intro Regresión Lineal
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Se ha realizado un modelo de regresión lineal sobre cada regresor.
- Los datos de los mismos pueden verse en
+ Los datos de los mismos pueden verse en la tabla
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
-LatexCommand formatted
-reference "tab:Regresiones-lineales-simples"
+LatexCommand ref
+reference "tab:abalone-simple-linear-regressions"
 
 \end_inset
 
@@ -6089,6 +6199,7 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="10" columns="7">
 <features tabularvalignment="middle">
@@ -6234,7 +6345,7 @@ p-value
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{MSE}_{train}$
+\begin_inset Formula $\overline{MSE}_{tra}$
 \end_inset
 
 
@@ -6248,7 +6359,7 @@ p-value
 \begin_layout Plain Layout
 
 \series bold
-\begin_inset Formula $\mathbf{\overline{MSE}_{test}}$
+\begin_inset Formula $\mathbf{\overline{MSE}_{tst}}$
 \end_inset
 
 
@@ -6966,7 +7077,7 @@ Shell_weight
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:Regresiones-lineales-simples"
+name "tab:abalone-simple-linear-regressions"
 
 \end_inset
 
@@ -7007,7 +7118,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:lm-regresion-simple-1"
+name "fig:abalone-simple-linear-regressions-scatterplot"
 
 \end_inset
 
@@ -7029,10 +7140,14 @@ Regresiones lineales simples, con cada regresor.
 \end_layout
 
 \begin_layout Standard
-Observando las gráficas 
+Observando las gráficas de la figura
+\begin_inset space ~
+\end_inset
+
+
 \begin_inset CommandInset ref
-LatexCommand formatted
-reference "fig:scatterplot-rings-abalone"
+LatexCommand ref
+reference "fig:abalone-rings-scatterplot"
 
 \end_inset
 
@@ -7055,25 +7170,25 @@ _weight
  de bacterias.
  De entre las operaciones probadas, el logaritmo ha dado el mejor resultado,
  al aumentar el índice de correlación lineal de Pearson y mejorar el ajuste
- lineal, como puede verse en
+ lineal, como puede verse en la tabla
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
-LatexCommand formatted
-reference "tab:Corrección-no-linealidades"
+LatexCommand ref
+reference "tab:abalone-non-linearities-corrections"
 
 \end_inset
 
- y
+ y la figura
 \begin_inset space ~
 \end_inset
 
 
 \begin_inset CommandInset ref
-LatexCommand formatted
-reference "fig:Regresión-lineal-simple-no-linealidades"
+LatexCommand ref
+reference "fig:abalone-simple-linear-regression+non-linearities-corrections"
 
 \end_inset
 
@@ -7087,6 +7202,7 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="13" columns="7">
 <features tabularvalignment="middle">
@@ -8256,7 +8372,7 @@ p-value
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:Corrección-no-linealidades"
+name "tab:abalone-non-linearities-corrections"
 
 \end_inset
 
@@ -8294,7 +8410,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Regresión-lineal-simple-no-linealidades"
+name "fig:abalone-simple-linear-regression+non-linearities-corrections"
 
 \end_inset
 
@@ -8319,6 +8435,19 @@ Regresión lineal simple en las variables en las que se han teniendo en cuenta
 
 \begin_layout Subsection
 Regresión lineal múltiple
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+SELECCIONAR 5 VARIABLES!!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -8349,9 +8478,20 @@ Sex
 Length
 \family default
  por presentar un p-value muy elevado.
- En la tabla # se puede contemplar los resultados de esta segunda aproximación,
- así como el de varias iteraciones en las que se han ido eliminando cada
- vez más regresores.
+ En la tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:abalone-multiple-lineal-regressions"
+
+\end_inset
+
+ se puede contemplar los resultados de esta segunda aproximación, así como
+ el de varias iteraciones en las que se han ido eliminando cada vez más
+ regresores.
 \end_layout
 
 \begin_layout Standard
@@ -8361,15 +8501,16 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="7" columns="6">
 <features tabularvalignment="middle">
-<column alignment="left" valignment="middle" width="4.4cm">
+<column alignment="left" valignment="top" width="4.4cm">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
-<column alignment="left" valignment="top" width="5cm">
+<column alignment="left" valignment="top" width="3.5cm">
 <row>
 <cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -8857,7 +8998,7 @@ Modelo lineal teniendo en cuenta las interacciones entre algunas de las
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:Regresiones-lineales-múltiples"
+name "tab:abalone-multiple-lineal-regressions"
 
 \end_inset
 
@@ -8971,7 +9112,7 @@ Para comprobar las hipótesis de trabajo de partida, se han comparado gráficas
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -9011,6 +9152,19 @@ Regresión mediante el algoritmo k-NN
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Intro de k-NN
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 El algoritmo de los k vecinos más cercanos (k-Nearest Neighbours) puede
  usarse para regresión.
 \end_layout
@@ -9039,7 +9193,7 @@ status collapsed
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:knn-regresion-simple"
+name "fig:abalone-knn-simple-regressions"
 
 \end_inset
 
@@ -9068,16 +9222,17 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="14" columns="5">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top">
+<column alignment="left" valignment="top" width="0pt">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9132,7 +9287,7 @@ k-NN (
 </cell>
 </row>
 <row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9145,7 +9300,7 @@ k-NN (
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{MSE}_{train}$
+\begin_inset Formula $\overline{MSE}_{tra}$
 \end_inset
 
 
@@ -9159,7 +9314,7 @@ k-NN (
 \begin_layout Plain Layout
 
 \series bold
-\begin_inset Formula $\mathbf{\overline{MSE}_{test}}$
+\begin_inset Formula $\mathbf{\overline{MSE}_{tst}}$
 \end_inset
 
 
@@ -9171,7 +9326,7 @@ k-NN (
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{MSE}_{train}$
+\begin_inset Formula $\overline{MSE}_{tra}$
 \end_inset
 
 
@@ -9185,7 +9340,7 @@ k-NN (
 \begin_layout Plain Layout
 
 \series bold
-\begin_inset Formula $\mathbf{\overline{MSE}_{test}}$
+\begin_inset Formula $\mathbf{\overline{MSE}_{tst}}$
 \end_inset
 
 
@@ -9195,7 +9350,7 @@ k-NN (
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9273,7 +9428,7 @@ Sex
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9351,7 +9506,7 @@ Length
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9429,7 +9584,7 @@ Diameter
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9507,7 +9662,7 @@ Height
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9585,7 +9740,7 @@ Whole_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9663,7 +9818,7 @@ Shucked_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9741,7 +9896,7 @@ Viscera_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9819,7 +9974,7 @@ Shell_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9900,7 +10055,7 @@ Shell_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -9981,7 +10136,7 @@ Shell_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10062,7 +10217,7 @@ Shell_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10154,16 +10309,17 @@ Shell_weight
 \end_layout
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="14" columns="5">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10214,7 +10370,7 @@ Linear regression
 </cell>
 </row>
 <row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10227,7 +10383,7 @@ Linear regression
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{MSE}_{train}$
+\begin_inset Formula $\overline{MSE}_{tra}$
 \end_inset
 
 
@@ -10241,7 +10397,7 @@ Linear regression
 \begin_layout Plain Layout
 
 \series bold
-\begin_inset Formula $\mathbf{\overline{MSE}_{test}}$
+\begin_inset Formula $\mathbf{\overline{MSE}_{tst}}$
 \end_inset
 
 
@@ -10253,7 +10409,7 @@ Linear regression
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\overline{MSE}_{train}$
+\begin_inset Formula $\overline{MSE}_{tra}$
 \end_inset
 
 
@@ -10267,7 +10423,7 @@ Linear regression
 \begin_layout Plain Layout
 
 \series bold
-\begin_inset Formula $\mathbf{\overline{MSE}_{test}}$
+\begin_inset Formula $\mathbf{\overline{MSE}_{tst}}$
 \end_inset
 
 
@@ -10277,7 +10433,7 @@ Linear regression
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10355,7 +10511,7 @@ Sex
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10433,7 +10589,7 @@ Length
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10511,7 +10667,7 @@ Diameter
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10589,7 +10745,7 @@ Height
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10667,7 +10823,7 @@ Whole_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10745,7 +10901,7 @@ Shucked_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10823,7 +10979,7 @@ Viscera_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10901,7 +11057,7 @@ Shell_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -10970,7 +11126,7 @@ Shell_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -11051,7 +11207,7 @@ Shell_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -11120,7 +11276,7 @@ Shell_weight
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -11201,7 +11357,7 @@ Shell_weight
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:Regresiones-knn-simples"
+name "tab:abalone-knn-simple-regressions"
 
 \end_inset
 
@@ -11227,7 +11383,7 @@ Comparando las figuras
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:lm-regresion-simple-1"
+reference "fig:abalone-simple-linear-regressions-scatterplot"
 
 \end_inset
 
@@ -11238,7 +11394,7 @@ reference "fig:lm-regresion-simple-1"
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:knn-regresion-simple"
+reference "fig:abalone-knn-simple-regressions"
 
 \end_inset
 
@@ -11256,11 +11412,11 @@ reference "fig:knn-regresion-simple"
 , el ajuste lineal tiene, en realidad, mejores resultados.
  En general, parece que k-NN produce más sobreajuste, al tener una diferencia
  mayor entre 
-\begin_inset Formula $\overline{MSE}{}_{train}$
+\begin_inset Formula $\overline{MSE}{}_{tra}$
 \end_inset
 
  y 
-\begin_inset Formula $\overline{MSE}{}_{test}$
+\begin_inset Formula $\overline{MSE}{}_{tst}$
 \end_inset
 
 .
@@ -11285,12 +11441,26 @@ Se podrían probar otras métricas...
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+kNN NO ES COSTOSO A LA HORA DE ENTRENAR
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
 status collapsed
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="8" columns="7">
 <features tabularvalignment="middle">
@@ -11472,7 +11642,17 @@ k-NN (
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\family typewriter
 .
+\family default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+(sum of every variable)
 \end_layout
 
 \end_inset
@@ -12034,7 +12214,7 @@ Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight *
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:Regresiones-kNN-múltiples"
+name "tab:abalone-knn-multiple-regressions"
 
 \end_inset
 
@@ -12071,9 +12251,20 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:abalone-knn-models-comparison-VS-k"
+
+\end_inset
+
 Comparación de diferentes modelos construidos con k-NN, cambiando el valor
  de 
 \begin_inset Formula $k$
+\end_inset
+
+.
+ El error representado es 
+\begin_inset Formula $\overline{MSE}{}_{tst}$
 \end_inset
 
 .
@@ -12116,14 +12307,14 @@ Comparación entre los modelos lineales y regresiones con k-NN para el caso
 A la vista de las tablas 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:Regresiones-lineales-múltiples"
+reference "tab:abalone-multiple-lineal-regressions"
 
 \end_inset
 
  y 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:Regresiones-kNN-múltiples"
+reference "tab:abalone-knn-multiple-regressions"
 
 \end_inset
 
@@ -12331,6 +12522,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="2" columns="3">
 <features tabularvalignment="middle">
@@ -12436,6 +12628,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="3" columns="3">
 <features tabularvalignment="middle">
@@ -12443,7 +12636,7 @@ status open
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -12456,7 +12649,7 @@ p-value
 \begin_inset Text
 
 \begin_layout Plain Layout
-1
+LM
 \end_layout
 
 \end_inset
@@ -12465,7 +12658,7 @@ p-value
 \begin_inset Text
 
 \begin_layout Plain Layout
-2
+k-NN
 \end_layout
 
 \end_inset
@@ -12476,7 +12669,7 @@ p-value
 \begin_inset Text
 
 \begin_layout Plain Layout
-2
+k-NN
 \end_layout
 
 \end_inset
@@ -12505,7 +12698,7 @@ p-value
 \begin_inset Text
 
 \begin_layout Plain Layout
-3
+M5'
 \end_layout
 
 \end_inset
@@ -12540,7 +12733,15 @@ p-value
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:regression-comparison-wilcoxon"
 
+\end_inset
+
+Resultados del test de los rangos con signo de Wilcoxon por parejas, aplicado
+ a los resultados de Accuracy obtenidos por los diferentes algoritmos de
+ regresióncación.
 \end_layout
 
 \end_inset
@@ -12564,9 +12765,20 @@ tae
 \end_layout
 
 \begin_layout Standard
-Tras haber visualizado los datos y haber explorado las (inexistentes) relaciones
- entre las distintas variables de entrada (sección #), procedemos a aplicar
- distintos algoritmos de clasificación sobre el conjunto de datos.
+Tras haber visualizado los datos y haber explorado las posibles relaciones
+ entre las distintas variables de entrada (ver sección
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:tae-visualization"
+
+\end_inset
+
+), procedemos a aplicar distintos algoritmos de clasificación sobre el conjunto
+ de datos.
  Para ello, se han utilizado en todo caso las particiones ya existentes,
  que serán también utilizadas para la validación cruzada.
 \end_layout
@@ -12590,28 +12802,236 @@ El algoritmo de los
 
 \begin_layout Standard
 Cabe destacar que, puesto que el principio básico de k-NN supone medir la
- distancia de un elemento a sus k elementos más cercanos, es necesario definir
- una métrica y es conveniente que las variables de entrada estén normalizadas.
+ distancia de cada elemento a sus 
+\begin_inset Formula $k$
+\end_inset
+
+ elementos más cercanos, es necesario definir una métrica y es conveniente
+ que las variables de entrada estén normalizadas.
+ Por este motivo, el primer paso en el procesamiento de los datos será normaliza
+r la variable 
+\family typewriter
+Size
+\family default
+.
+ Adicionalmente, podría procederse a normalizar el resto de variables, que,
+ a pesar de ser categóricas, tienen un valor numérico.
+ Esto supone prescindir de la transformación en 
+\emph on
+factors
+\emph default
+ de las variables de entrada.
+ Aunque este paso no tiene un fundamento claro, se ha comprobado que mejora
+ los resultados de la predicción.
+ No obstante, tras probar con distintos factores de escalado en cada variable
+ de entrada, se ha comprobado que la mayor mejora no se produce con una
+ normalización
+\emph on
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+La normalización llevada a cabo se rige por la función
+\emph on
+ 
+\begin_inset Formula $f(x)=\frac{x-\min(x)}{\max(x)-\min(x)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\emph default
+, sino con un escalado como el de la tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tae-scale-factors"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-k-NN necesita entradas cuantitativas, por lo que se ha prescindido de la
- transformación en factors de todas las variables, salvo la de salida.
- Esto implica que se están usando valores numéricos no binarios para identificar
- variables nominales, por lo que las medidas van a estar muy falseadas y
- las distancias medidas por k-NN no tendrán demasiada relevancia.
- La única variable que es realmente numérica es Size.
- Por este motivo, k-NN no puede producir unos resultados muy buenos, a pesar
- de ser una técnica no paramétrica que se basa en detectar los vecinos más
- cercanos y que suele producir muy buenos resultados.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
+\begin_inset Float table
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-Probar regresión logística? Tal vez funcione mejor con los factors
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Variable
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Native
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Instructor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Course
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Semester
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Size
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scale factor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+x4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+x4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+x4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+x1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+normalized
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tae-scale-factors"
+
+\end_inset
+
+Factores de normalización aplicados a las variables de entrada antes del
+ algoritmo k-NN.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -12620,13 +13040,125 @@ Probar regresión logística? Tal vez funcione mejor con los factors
 \end_layout
 
 \begin_layout Standard
-Se ha probado a poner en una matriz de ocurrencias los Instructors y Courses,
- pero el resultado ha sido parecido a no hacerlo.
- De hecho, se han producido errores en LDA puesto que es muy facil que las
- variables sean linealmente dependientes (o iguales, o que todo sea cero,
- más bien).
- Los resultados de kNN han mejorado un poco si se considera k=1, lo cuál
- parece un poco peligroso.
+Con el fin de obtener los mejores resultados posibles, se ha realizado un
+ estudio del rendimiento del algoritmo k-NN con distintos valores del parámetro
+ 
+\emph on
+
+\begin_inset Formula $k$
+\end_inset
+
+
+\emph default
+.
+ Para ello, se ha calculado el 
+\emph on
+Accuracy
+\emph default
+ medio de las predicciones realizadas para cada partición de validación
+ cruzada (
+\emph on
+k-fold
+\emph default
+) con distintos valores de 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ Esta experiencia se ha repetido nueve veces, con el fin de observar la
+ variabilidad de los resultados producida por la componente aleatoria del
+ algoritmo k-NN.
+ Por último, se ha calculado la media de los resultados de Accuracy observados,
+ seleccionando la cifra más alta junto al valor de 
+\begin_inset Formula $k$
+\end_inset
+
+ que la produce.
+ Los resultados óptimos, representados en la figura
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tae-knn-accuracy-plot"
+
+\end_inset
+
+, se han conseguido para 
+\begin_inset Formula $k=1$
+\end_inset
+
+, llegando a un 
+\emph on
+Accuracy
+\emph default
+ medio de 
+\begin_inset Formula $0.621$
+\end_inset
+
+, con una desviación típica de 
+\begin_inset Formula $0.009$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename src/analysis/img/Rplot53.eps
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\emph on
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tae-knn-accuracy-plot"
+
+\end_inset
+
+Accuracy
+\emph default
+ obtenido con el algoritmo k-NN en función del parámetro 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ Cada punto ha sido calculado haciendo la media de los resultados obtenidos
+ para cada partición de validación cruzada (
+\emph on
+k-fold
+\emph default
+).
+ La experiencia se ha repetido 9 veces para observar la variabilidad de
+ los resultados producida por la componente aleatoria del algoritmo k-NN.
+ La media se ha representado con una línea magenta más gruesa.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -12634,21 +13166,350 @@ Clasificación mediante análisis discriminante lineal (LDA)
 \end_layout
 
 \begin_layout Standard
-El mismo problema que enturbiaba el uso de k-NN no va a permitir que LDA
- trabaje correctamente.
- Para más inri, LDA no solo asume que las variables de entrada son numéricas,
- sino también que están distribuidas normalmente.
- Esto, que para el caso de estudio no es cierto 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-(prueba de normalidad requerida!!)
+Intro de LDA
 \end_layout
 
 \end_inset
 
- va a hacer que LDA produzca muy malos resultados.
+
+\end_layout
+
+\begin_layout Standard
+LDA asume que los datos han sido extraídos de una distribución normal.
+ Por esto, LDA no funcionará bien con datos que no sigan una distribución
+ normal.
+ Para comprobar si las variables de entrada siguen una distribución normal,
+ se ha procedido a realizar un test de Shapiro-Wilk sobre las mismas.
+ La tabla 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tae-normality-test"
+
+\end_inset
+
+ muestra los resultados de este test, que deben interpretarse del siguiente
+ modo: para cada una de las variables, debe rechazarse la hipótesis de que
+ los datos provengan de una distribución normal.
+ La figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:tae-QQplots"
+
+\end_inset
+
+ muestra los gráficos Q-Q de estas variables, pudiendo comprobarse que no
+ se ajustan a la distribución normal.
+ Tal vez las variables Size e Instructor tengan una forma más parecida a
+ la recta esperada, cosa que también se pone de manifiesto en el p-value
+ del test de Shapiro-Wilk, al ser éste un poco más elevado que el resto.
+ Con estos resultados sobre la mesa, podemos asegurar que no se cumplen
+ los requisistos establecidos por LDA, y que por tanto cabe esperar un rendimien
+to muy bajo del método.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Variable
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Statistic
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+p-value
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Native
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.474
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.51e-21
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Instructor
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.949
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+2.87e-05
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Course
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.843
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.29e-11
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Semester
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.421
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.89e-22
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family typewriter
+Size
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.971
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+2.71e-03
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tae-normality-test"
+
+\end_inset
+
+Test de normalidad Shapiro-Wilk aplicado a las variables de entrada del
+ conjunto de datos 
+\emph on
+tae
+\emph default
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename src/analysis/img/Rplot51.eps
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:tae-QQplots"
+
+\end_inset
+
+Gráficos Q-Q de las distintas variables de entrada.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los resultados obtenidos con LDA pueden verse en la tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tae-classification-comparison"
+
+\end_inset
+
+, donde se comparan los resultados de los tres métodos estudiados.
 \end_layout
 
 \begin_layout Subsection
@@ -12656,11 +13517,36 @@ Clasificación mediante análisis discriminante cuadrático (QDA)
 \end_layout
 
 \begin_layout Standard
+QDA es un método muy parecido a LDA, que también requiere que los datos
+ provengan de distribuciones normales.
+ La principal ventaja de QDA sobre LDA es que el primero no requiere que
+ los datos tengan la misma varianza ni covarianzas, puesto que éstas son
+ estimadas de forma independiente.
+ No obstante, el caso que nos ocupa no presenta ninguna distribución normal,
+ por lo que no se esperan buenos resultados de este método.
+\end_layout
+
+\begin_layout Standard
+Los resultados obtenidos con QDA pueden verse en la tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tae-classification-comparison"
+
+\end_inset
+
+, donde se comparan los resultados de los tres métodos estudiados.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Estudiar qué asume QDA y LDA y explicar por qué no funcionan.
+¿Por qué QDA produce peores resultados que LDA?
 \end_layout
 
 \end_inset
@@ -12673,12 +13559,87 @@ Comparación de los algoritmos
 \end_layout
 
 \begin_layout Standard
+Con el objetivo de mejorar los resultados de la clasificación, se ha probado
+ a poner en una matriz de ocurrencias las variables 
+\family typewriter
+Instructor 
+\family default
+y 
+\family typewriter
+Course
+\family default
+.
+ A pesar de ello, las medidas de 
+\emph on
+Accuracy
+\emph default
+ con el algoritmo k-NN han sido muy similares a las obtenidas anteriormente.
+ Es más, esta transformación no ha permitido el uso de los métodos LDA y
+ QDA, ya que las matrices de ocurrencias tienen muchas columnas igual a
+ cero, que son por tanto linealmente dependientes.
+\end_layout
+
+\begin_layout Standard
+Los resultados obtenidos, tanto de 
+\emph on
+Accuracy
+\emph default
+ como 
+\emph on
+Kappa
+\emph default
+ son los mostrados en la tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tae-classification-comparison"
+
+\end_inset
+
+, cuyas medias están representadas gráficamente en la figura
+\begin_inset space ~
+\end_inset
+
+.
+ Como puede observarse, k-NN es muy superior a los otros dos algoritmos
+ en el caso estudiado.
+ Para comprobar que efectivamente existen diferencias significativas entre
+ los resultados de los distintos algoritmos, se han aplicado el test de
+ Friedman y el test de los rangos con signo de Wilcoxon sobre la variable
+ 
+\emph on
+Accuracy
+\emph default
+.
+ En el primero de los tests, se ha obtenido un p-value de 2.56e-05, comprobándose
+ que al menos uno de los métodos funciona mejor que el resto.
+ El test de Wilcoxon revela que, en realidad, existen diferencias significativas
+ entre los resultados de Accuracy de los tres algoritmos, al arrojar los
+ p-value mostrados en la tabla
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:tae-comparison-wilcoxon"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
 \begin_inset Tabular
 <lyxtabular version="3" rows="13" columns="7">
 <features tabularvalignment="middle">
@@ -12704,7 +13665,7 @@ k-fold
 
 \begin_layout Plain Layout
 k-NN (
-\begin_inset Formula $k=17$
+\begin_inset Formula $k=1$
 \end_inset
 
 )
@@ -12781,7 +13742,7 @@ Accuracy
 \begin_inset Text
 
 \begin_layout Plain Layout
-#
+Kappa
 \end_layout
 
 \end_inset
@@ -12799,7 +13760,7 @@ Accuracy
 \begin_inset Text
 
 \begin_layout Plain Layout
-#
+Kappa
 \end_layout
 
 \end_inset
@@ -12817,7 +13778,7 @@ Accuracy
 \begin_inset Text
 
 \begin_layout Plain Layout
-#
+Kappa
 \end_layout
 
 \end_inset
@@ -12838,6 +13799,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.467
 \end_layout
 
 \end_inset
@@ -12847,6 +13820,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.200
 \end_layout
 
 \end_inset
@@ -12856,6 +13841,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.333
 \end_layout
 
 \end_inset
@@ -12865,6 +13862,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.000
 \end_layout
 
 \end_inset
@@ -12874,6 +13883,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.267
 \end_layout
 
 \end_inset
@@ -12883,6 +13904,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.100
 \end_layout
 
 \end_inset
@@ -12903,6 +13936,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.714
 \end_layout
 
 \end_inset
@@ -12912,6 +13957,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.569
 \end_layout
 
 \end_inset
@@ -12921,6 +13978,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.500
 \end_layout
 
 \end_inset
@@ -12930,6 +13999,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.222
 \end_layout
 
 \end_inset
@@ -12939,6 +14020,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.214
 \end_layout
 
 \end_inset
@@ -12948,6 +14041,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.108
 \end_layout
 
 \end_inset
@@ -12968,6 +14073,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.786
 \end_layout
 
 \end_inset
@@ -12977,6 +14094,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.679
 \end_layout
 
 \end_inset
@@ -12986,6 +14115,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.571
 \end_layout
 
 \end_inset
@@ -12995,6 +14136,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.333
 \end_layout
 
 \end_inset
@@ -13004,6 +14157,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.286
 \end_layout
 
 \end_inset
@@ -13013,6 +14178,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.000
 \end_layout
 
 \end_inset
@@ -13033,6 +14210,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.714
 \end_layout
 
 \end_inset
@@ -13042,6 +14231,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.563
 \end_layout
 
 \end_inset
@@ -13051,6 +14252,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.500
 \end_layout
 
 \end_inset
@@ -13060,6 +14273,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.222
 \end_layout
 
 \end_inset
@@ -13069,6 +14294,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.357
 \end_layout
 
 \end_inset
@@ -13078,6 +14315,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.045
 \end_layout
 
 \end_inset
@@ -13098,6 +14347,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.643
 \end_layout
 
 \end_inset
@@ -13107,6 +14368,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.462
 \end_layout
 
 \end_inset
@@ -13116,6 +14389,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.357
 \end_layout
 
 \end_inset
@@ -13125,6 +14410,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.000
 \end_layout
 
 \end_inset
@@ -13134,6 +14431,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.143
 \end_layout
 
 \end_inset
@@ -13143,6 +14452,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.244
 \end_layout
 
 \end_inset
@@ -13163,6 +14484,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.603
 \end_layout
 
 \end_inset
@@ -13172,6 +14505,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.408
 \end_layout
 
 \end_inset
@@ -13181,6 +14526,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.357
 \end_layout
 
 \end_inset
@@ -13190,6 +14547,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.000
 \end_layout
 
 \end_inset
@@ -13199,6 +14568,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.286
 \end_layout
 
 \end_inset
@@ -13208,6 +14589,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.014
 \end_layout
 
 \end_inset
@@ -13228,6 +14621,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.429
 \end_layout
 
 \end_inset
@@ -13237,6 +14642,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.170
 \end_layout
 
 \end_inset
@@ -13246,6 +14663,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.357
 \end_layout
 
 \end_inset
@@ -13255,6 +14684,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.080
 \end_layout
 
 \end_inset
@@ -13264,6 +14705,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.357
 \end_layout
 
 \end_inset
@@ -13273,6 +14726,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.023
 \end_layout
 
 \end_inset
@@ -13293,6 +14758,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.667
 \end_layout
 
 \end_inset
@@ -13302,6 +14779,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.491
 \end_layout
 
 \end_inset
@@ -13311,6 +14800,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.429
 \end_layout
 
 \end_inset
@@ -13320,6 +14821,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.111
 \end_layout
 
 \end_inset
@@ -13329,6 +14842,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.286
 \end_layout
 
 \end_inset
@@ -13338,6 +14863,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.029
 \end_layout
 
 \end_inset
@@ -13358,6 +14895,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.571
 \end_layout
 
 \end_inset
@@ -13367,6 +14916,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.349
 \end_layout
 
 \end_inset
@@ -13376,6 +14937,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.429
 \end_layout
 
 \end_inset
@@ -13385,6 +14958,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.188
 \end_layout
 
 \end_inset
@@ -13394,6 +14979,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.286
 \end_layout
 
 \end_inset
@@ -13403,6 +15000,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+-0.069
 \end_layout
 
 \end_inset
@@ -13423,6 +15032,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.540
 \end_layout
 
 \end_inset
@@ -13432,6 +15053,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.305
 \end_layout
 
 \end_inset
@@ -13441,6 +15074,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.429
 \end_layout
 
 \end_inset
@@ -13450,6 +15095,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.125
 \end_layout
 
 \end_inset
@@ -13459,6 +15116,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.429
 \end_layout
 
 \end_inset
@@ -13468,6 +15137,18 @@ Accuracy
 
 \begin_layout Plain Layout
 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+0.111
 \end_layout
 
 \end_inset
@@ -13478,6 +15159,8 @@ Accuracy
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 mean
 \end_layout
 
@@ -13488,6 +15171,8 @@ mean
 
 \begin_layout Plain Layout
 
+\series bold
+0.613
 \end_layout
 
 \end_inset
@@ -13497,6 +15182,8 @@ mean
 
 \begin_layout Plain Layout
 
+\series bold
+0.420
 \end_layout
 
 \end_inset
@@ -13506,6 +15193,8 @@ mean
 
 \begin_layout Plain Layout
 
+\series bold
+0.426
 \end_layout
 
 \end_inset
@@ -13515,6 +15204,8 @@ mean
 
 \begin_layout Plain Layout
 
+\series bold
+0.128
 \end_layout
 
 \end_inset
@@ -13524,6 +15215,8 @@ mean
 
 \begin_layout Plain Layout
 
+\series bold
+0.291
 \end_layout
 
 \end_inset
@@ -13533,6 +15226,8 @@ mean
 
 \begin_layout Plain Layout
 
+\series bold
+-0.039
 \end_layout
 
 \end_inset
@@ -13549,19 +15244,184 @@ mean
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Comparación de los distintos algoritmos para los distintos datasets.
- 
-\begin_inset Note Note
-status open
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tae-classification-comparison"
 
-\begin_layout Plain Layout
-Wilcoxon !!
+\end_inset
+
+Comparación de los algoritmos de clasificación para cada uno de los 
+\emph on
+k-folds
+\emph default
+.
 \end_layout
 
 \end_inset
 
- Como puede observarse, k-NN es muy superior a los otros dos algoritmos
- en este caso.
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename src/analysis/img/Rplot52.eps
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparación de los algoritmos de clasificación
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+p-value
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+k-NN
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LDA
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LDA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.011
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+—
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+QDA
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.011
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.011
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:tae-comparison-wilcoxon"
+
+\end_inset
+
+Resultados del test de los rangos con signo de Wilcoxon por parejas, aplicado
+ a los resultados de Accuracy obtenidos por los diferentes algoritmos de
+ clasificación.
 \end_layout
 
 \end_inset
@@ -13578,6 +15438,13 @@ Wilcoxon !!
 Conclusión
 \end_layout
 
+\begin_layout LyX-Code
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 \begin_inset CommandInset label
 LatexCommand label
@@ -13588,7 +15455,7 @@ name "sec:appendix-analysis"
 Apéndice 1 - Código fuente: Análisis de datos
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Standard
 \begin_inset Branch Source Code
 status open
 
@@ -13802,6 +15669,13 @@ End Of File 'classification.R'
 \end_layout
 
 \begin_layout LyX-Code
+
+\family typewriter
+\size footnotesize
+\begin_inset Note Note
+status open
+
+\begin_layout LyX-Code
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -13812,7 +15686,7 @@ End Of File 'classification.R'
 Código fuente usado en el ejercicio de clasificación, usando CARET
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Note Note
 status open
 
@@ -13825,7 +15699,7 @@ Complete this file!!
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
 filename "src/classification/classification-caret.R"
@@ -13835,7 +15709,12 @@ filename "src/classification/classification-caret.R"
 
 \family typewriter
 \size footnotesize
-End Of File 'classification'caret.R'
+End Of File 'classification-caret.R'
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout LyX-Code
