@@ -145,7 +145,11 @@ knn.MSE.data.frame = function(
   return(MSE)
 }
 
-plot.MSE.data.frame = function(MSE) {
+plot.MSE.data.frame = function(MSE, model = "") {
+  model = as.character(myModel)
+  if(length(model) == 3) {
+    model = paste(model[2], model[1], model[3])
+  }
   myData = melt.data.frame(
     MSE,
     id.vars = c("k", "model"),
@@ -153,15 +157,23 @@ plot.MSE.data.frame = function(MSE) {
   )
   
   ggplot(myData, aes(x = k, y = value, color = Data)) + 
-    geom_point() + geom_line () + ylab("MSE")
+    geom_point() + geom_line () + ylab("MSE") + 
+    ggtitle(model)
 }
 
+# Simple regression
+myModel = Rings~Shell_weight
 
+MSE = knn.MSE.data.frame(myModel)
+MSE.record = rbind(MSE.record, MSE)
+plot.MSE.data.frame(MSE, myModel)
+
+# Every variable
 myModel = Rings~.
 
 MSE = knn.MSE.data.frame(myModel)
 MSE.record = rbind(MSE.record, MSE)
-plot.MSE.data.frame(MSE)
+plot.MSE.data.frame(MSE, myModel)
 
 
 ## No interactions
