@@ -293,7 +293,11 @@ El conjunto de datos
 \emph on
 abalone
 \emph default
- corresponde a un dataframe con una dimensión de 4176 filas y 9 columnas.
+ corresponde a un 
+\emph on
+dataframe
+\emph default
+ con una dimensión de 4176 filas y 9 columnas.
  Esto corresponde a 4176 muestras en las que se han medido 9 propiedades.
  Estas propiedades o campos se presentan en
 \begin_inset space ~
@@ -1049,7 +1053,7 @@ reference "fig:Distribution-abalone"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -6196,10 +6200,49 @@ nto y el conjunto de test son muy parecidos.
 \end_layout
 
 \begin_layout Standard
+Las cinco variables más relevantes en este problema son, en orden según
+ el valor de 
+\begin_inset Formula $\overline{MSE}_{tst}$
+\end_inset
+
+: 
+\family typewriter
+\size footnotesize
+Shell_weight
+\family default
+\size default
+,
+\family typewriter
+\size footnotesize
+ Diameter
+\family default
+\size default
+, 
+\family typewriter
+\size footnotesize
+Length
+\family default
+\size default
+, 
+\family typewriter
+\size footnotesize
+Height
+\family default
+\size default
+ y 
+\family typewriter
+\size footnotesize
+Whole_weight
+\family default
+\size default
+.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -8511,7 +8554,7 @@ reference "tab:abalone-multiple-lineal-regressions"
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -9063,6 +9106,58 @@ overfitting
 underfitting
 \emph default
 .
+\end_layout
+
+\begin_layout Standard
+De entre los modelos estudiados, el que mejor resultados ha dado es 
+\family typewriter
+\size footnotesize
+Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight *
+ Shell_weight.3
+\family default
+\size default
+, que considera combinaciones lineales de 
+\family typewriter
+\size footnotesize
+Length
+\family default
+\size default
+ y 
+\family typewriter
+\size footnotesize
+Height
+\family default
+\size default
+, y las interacciones entre el logaritmo de 
+\family typewriter
+\size footnotesize
+Whole_weight
+\family default
+\size default
+ y
+\family typewriter
+\size footnotesize
+ Shucked_weight
+\family default
+\size default
+, con la variable
+\family typewriter
+\size footnotesize
+ Viscera_weight
+\family default
+\size default
+ y la raíz cúbica de
+\family typewriter
+\size footnotesize
+ Shell_weight.3
+\family default
+\size default
+.
+ Este modelo ha producido un error 
+\begin_inset Formula $\overline{MSE}_{tst}=4.50$
+\end_inset
+
+ en la validación cruzada.
 \end_layout
 
 \begin_layout Standard
@@ -13406,13 +13501,20 @@ Accuracy
 \end_inset
 
 .
+ Podría pensarse que 
+\begin_inset Formula $k=1$
+\end_inset
+
+ hará que el modelo sobreajuste, sin embargo, estos resultados se han obtenido
+ con validación cruzada, así que debemos confiar en que se trata del mejor
+ modelo.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
