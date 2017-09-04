@@ -6,7 +6,7 @@
 ################################################
 
 # Build the workspace
-source("../classification/build-workspace.R")
+source("classification/build-workspace.R")
 
 # Some info about the classes
 round(prop.table(table(tae$Class)) * 100, digits = 1)

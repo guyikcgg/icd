@@ -6,7 +6,7 @@
 ################################################
 
 # Build the workspace
-source("../regression/build-workspace.R")
+source("regression/build-workspace.R")
 
 abalone.tra = lapply(abalone.tra, add.non.linearities)
 abalone.tst = lapply(abalone.tst, add.non.linearities)
@@ -117,11 +117,11 @@ ggplot(myData, aes(x=value^2)) +
 
 # General algorithm comparison (using MSE from every database)
 ## Read data
-testResults = read.csv("../regression/regr_test_alumnos.csv")
+testResults = read.csv("regression/regr_test_alumnos.csv")
 testTable = testResults[, 2:ncol(testResults)]
 rownames(testTable) = testResults[,1]
 
-trainResults = read.csv("../regression/regr_train_alumnos.csv")
+trainResults = read.csv("regression/regr_train_alumnos.csv")
 trainTable = trainResults[, 2:ncol(testResults)]
 rownames(trainTable) = trainResults[,1]
 

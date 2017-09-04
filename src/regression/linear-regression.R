@@ -6,7 +6,7 @@
 ################################################
 
 # Build the workspace
-source("../regression/build-workspace.R")
+source("regression/build-workspace.R")
 
 
 # Get simple linear regression models

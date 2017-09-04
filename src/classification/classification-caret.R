@@ -6,7 +6,7 @@
 ################################################
 
 # Build the workspace
-source("../classification/build-workspace.R")
+source("classification/build-workspace.R")
 
 # Apply k-NN algorithm to the first set
 knnModel = train(

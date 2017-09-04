@@ -6,7 +6,7 @@
 ################################################
 
 # Build the workspace (load variables and functions)
-source("../regression/build-workspace.R")
+source("regression/build-workspace.R")
 
 
 # Get the data type and dimension

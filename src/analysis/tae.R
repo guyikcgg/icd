@@ -6,7 +6,7 @@
 ################################################
 
 # Build the workspace
-source("../classification/build-workspace.R")
+source("classification/build-workspace.R")
 
 
 # Get the data type and dimension
