@@ -128,49 +128,49 @@ Introducción
 \end_layout
 
 \begin_layout Standard
-Este es el Trabajo Teórico/Pŕactico Integrador de la asignatura 
+Este es el Trabajo Teórico/Pŕactico Integrador de la asignatura
 \emph on
 Introducción a la Ciencia de Datos
 \emph default
-, impartida en el 
+, impartida en el
 \emph on
 Máster en Ciencia de Datos e Ingeniería de Computadores
 \emph default
  (DATCOM).
  En el mismo, se desarrollan los ejercicios propuestos por los profesores,
  aplicando los conocimientos adquiridos en la asignatura.
- 
+
 \end_layout
 
 \begin_layout Standard
-La realización de este trabajo se ha llevado a cabo usando 
+La realización de este trabajo se ha llevado a cabo usando
 \emph on
 RStudio
 \emph default
- 
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "RStudio2017,racine2012rstudio"
 
 \end_inset
 
-, 
+,
 \emph on
 en su
 \emph default
- 
+
 \emph on
 versión
 \emph default
- 
+
 \emph on
 0.99.903
 \emph default
- - 
+ -
 \emph on
 R version 3.3.2 (2016-10-31)
 \emph default
- 
+
 \begin_inset CommandInset citation
 LatexCommand cite
 key "ihaka1996r"
@@ -178,7 +178,7 @@ key "ihaka1996r"
 \end_inset
 
 .
- La mayor parte de los gráficos han sido generados usando 
+ La mayor parte de los gráficos han sido generados usando
 \emph on
 ggplot2
 \emph default
@@ -289,11 +289,11 @@ abalone
 \end_layout
 
 \begin_layout Standard
-El conjunto de datos 
+El conjunto de datos
 \emph on
 abalone
 \emph default
- corresponde a un 
+ corresponde a un
 \emph on
 dataframe
 \emph default
@@ -454,7 +454,7 @@ factor
 \end_layout
 
 \begin_layout Plain Layout
-3 = I (infant) 
+3 = I (infant)
 \end_layout
 
 \end_inset
@@ -958,7 +958,7 @@ integer
 \uwave off
 \noun off
 \color none
-+1.5 gives the age in years 
++1.5 gives the age in years
 \end_layout
 
 \end_inset
@@ -981,7 +981,7 @@ name "tab:abalone-description"
 
 \end_inset
 
-Descripción de los atributos presentes en 
+Descripción de los atributos presentes en
 \emph on
 abalone
 \emph default
@@ -2653,7 +2653,7 @@ name "tab:statistics-abalone-numeric"
 
 \end_inset
 
-Medidas estadísticas sobre las variables cuantitativas de 
+Medidas estadísticas sobre las variables cuantitativas de
 \emph on
 abalone
 \emph default
@@ -2683,7 +2683,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot12.eps
+	filename img/Rplot12.eps
 	width 80col%
 
 \end_inset
@@ -2701,7 +2701,7 @@ name "fig:Distribution-abalone"
 
 \end_inset
 
-Distribución de las variables cuantitativas de entrada en 
+Distribución de las variables cuantitativas de entrada en
 \emph on
 abalone
 \emph default
@@ -2977,7 +2977,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot08.eps
+	filename img/Rplot08.eps
 	width 80col%
 
 \end_inset
@@ -3000,7 +3000,7 @@ name "tab:statistics-abalone-categorical"
 
 \end_inset
 
-Tabla de frecuencias de las variables categóricas de 
+Tabla de frecuencias de las variables categóricas de
 \emph on
 abalone
 \emph default
@@ -4187,7 +4187,7 @@ name "tab:Correlación-abalone"
 
 \end_inset
 
-Correlación entre las variables cuantitativas en 
+Correlación entre las variables cuantitativas en
 \emph on
 abalone
 \emph default
@@ -4213,7 +4213,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot07.png
+	filename img/Rplot07.png
 	lyxscale 10
 	width 80text%
 
@@ -4232,7 +4232,7 @@ name "fig:abalone-rings-scatterplot"
 
 \end_inset
 
-Nube de puntos de las variables de entrada con respecto a la salida en 
+Nube de puntos de las variables de entrada con respecto a la salida en
 \emph on
 abalone
 \emph default
@@ -4284,7 +4284,7 @@ Evaluation)
 \end_layout
 
 \begin_layout Standard
-El conjunto de datos 
+El conjunto de datos
 \emph on
 tae
 \emph default
@@ -4306,15 +4306,15 @@ reference "tab:tae-description"
  Como puede observarse en la tabla, todas las variables son categóricas,
  salvo el tamaño de la clase, que es un entero.
  El tipo de datos de la variable de salida es también categórico, pudiendo
- tomar tres valores distintos: 
+ tomar tres valores distintos:
 \emph on
 low
 \emph default
-, 
+,
 \emph on
 medium
 \emph default
- y 
+ y
 \emph on
 high
 \emph default
@@ -4450,7 +4450,7 @@ whether of not the TA is
 \begin_inset Newline newline
 \end_inset
 
- a native English speaker: 
+ a native English speaker:
 \begin_inset Newline newline
 \end_inset
 
@@ -4624,7 +4624,7 @@ factor
 \begin_inset Text
 
 \begin_layout Plain Layout
-summer or regular semester: 
+summer or regular semester:
 \begin_inset Newline newline
 \end_inset
 
@@ -4686,7 +4686,7 @@ integer
 \begin_inset Text
 
 \begin_layout Plain Layout
-class size 
+class size
 \begin_inset Newline newline
 \end_inset
 
@@ -4779,7 +4779,7 @@ name "tab:tae-description"
 
 \end_inset
 
-Descripción de los atributos presentes en 
+Descripción de los atributos presentes en
 \emph on
 tae
 \emph default
@@ -4808,7 +4808,7 @@ key "alcala2011keel,Lichman:2013"
 \end_layout
 
 \begin_layout Standard
-Las medidas estadísticas sobre la variable numérica 
+Las medidas estadísticas sobre la variable numérica
 \family typewriter
 Size
 \family default
@@ -4825,11 +4825,11 @@ reference "tab:tae-numeric-variables-statistics"
 
 .
  Junto a ellas, se han calculado los momentos estadísticos de las variables
- 
+
 \family typewriter
 Instructor
 \family default
- y 
+ y
 \family typewriter
 Course
 \family default
@@ -4863,14 +4863,14 @@ reference "fig:tae-size-boxplot-distribution"
 
 \end_inset
 
-, en cambio, muestra la distribución de la variable 
+, en cambio, muestra la distribución de la variable
 \family typewriter
 Size
 \family default
 .
  Esta variable tiene una distribución más cercana a la normal, aunque existen
  diferencias en función de la clase a la que pertenecen los datos.
- 
+
 \end_layout
 
 \begin_layout Standard
@@ -5284,7 +5284,7 @@ name "tab:tae-numeric-variables-statistics"
 
 \end_inset
 
-Medidas estadísticas sobre la única variables cuantitativa de 
+Medidas estadísticas sobre la única variables cuantitativa de
 \emph on
 tae
 \emph default
@@ -5313,7 +5313,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot49.eps
+	filename img/Rplot49.eps
 	width 65text%
 
 \end_inset
@@ -5324,7 +5324,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot50.eps
+	filename img/Rplot50.eps
 	width 55text%
 
 \end_inset
@@ -5346,7 +5346,7 @@ Diagrama de caja con bigotes de los valores numéricos de las variables
 \family typewriter
  Course
 \family default
- e 
+ e
 \family typewriter
 Instructor
 \family default
@@ -5372,7 +5372,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot46.eps
+	filename img/Rplot46.eps
 	width 60text%
 
 \end_inset
@@ -5383,7 +5383,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot48.eps
+	filename img/Rplot48.eps
 	width 55text%
 
 \end_inset
@@ -5401,7 +5401,7 @@ name "fig:tae-size-boxplot-distribution"
 
 \end_inset
 
-Diagrama de caja con bigotes de la variable numérica 
+Diagrama de caja con bigotes de la variable numérica
 \family typewriter
 Size
 \family default
@@ -5487,7 +5487,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot39.eps
+	filename img/Rplot39.eps
 	width 100text%
 
 \end_inset
@@ -5528,7 +5528,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot45.eps
+	filename img/Rplot45.eps
 	width 55text%
 
 \end_inset
@@ -5599,7 +5599,7 @@ reference "fig:tae-course-cool-plots"
 
 \end_inset
 
- se ha representado la frecuencia de las ocurrencias de 
+ se ha representado la frecuencia de las ocurrencias de
 \family typewriter
 Course
 \family default
@@ -5613,7 +5613,7 @@ Course
  En este caso, puede observarse que el rendimiento no depende del número
  de asistentes que haya tenido el curso, puesto que los valores no siguen
  ninguna tendencia en concreto.
- Este mismo análisis se ha realizado para la variable 
+ Este mismo análisis se ha realizado para la variable
 \family typewriter
 Instructor
 \family default
@@ -5685,7 +5685,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename src/analysis/img/Rplot35.eps
+	filename img/Rplot35.eps
 	width 100text%
 
 \end_inset
@@ -5695,7 +5695,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename src/analysis/img/Rplot34.eps
+	filename img/Rplot34.eps
 	width 100text%
 
 \end_inset
@@ -5713,7 +5713,7 @@ name "fig:tae-course-cool-plots"
 
 \end_inset
 
-Frecuencia absoluta y relativa de las ocurrencias de 
+Frecuencia absoluta y relativa de las ocurrencias de
 \family typewriter
 Course
 \family default
@@ -5744,7 +5744,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename src/analysis/img/Rplot40.eps
+	filename img/Rplot40.eps
 	width 100text%
 
 \end_inset
@@ -5754,7 +5754,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename src/analysis/img/Rplot44.eps
+	filename img/Rplot44.eps
 	width 100text%
 
 \end_inset
@@ -5772,7 +5772,7 @@ name "fig:tae-instructor-cool-plots"
 
 \end_inset
 
-Frecuencia absoluta y relativa de las ocurrencias de 
+Frecuencia absoluta y relativa de las ocurrencias de
 \family typewriter
 Instructor
 \family default
@@ -6078,7 +6078,7 @@ Como conclusión, hay que decir que se trata de un ejercicio de clasificación
 \end_layout
 
 \begin_layout Section
-Regresión sobre el conjunto de datos 
+Regresión sobre el conjunto de datos
 \emph on
 abalone
 \end_layout
@@ -6107,22 +6107,22 @@ reference "subsec:abalone-visualization"
 
 \begin_layout Standard
 En todos los casos, la bondad de las regresiones se ha medido usando validación
- cruzada con el método 
+ cruzada con el método
 \emph on
 k-fold cross validation
 \emph default
 .
  De esta forma, ha sido posible medir el error cuadrático medio sobre el
- conjunto de test en cada regresión 
+ conjunto de test en cada regresión
 \begin_inset Formula $MSE_{tst}$
 \end_inset
 
-, realizando una media sobre los distintos conjuntos de test 
+, realizando una media sobre los distintos conjuntos de test
 \begin_inset Formula $\overline{MSE}_{tst}$
 \end_inset
 
 .
- El error cuadrático medio sobre el conjunto de entrenamiento 
+ El error cuadrático medio sobre el conjunto de entrenamiento
 \begin_inset Formula $MSE_{tra}$
 \end_inset
 
@@ -6167,11 +6167,11 @@ reference "tab:abalone-simple-linear-regressions"
 
 .
  Como puede observarse, el regresor que ha dado mejor resultado ha sido
- 
+
 \family typewriter
 Shell_weight
 \family default
-, seguido por 
+, seguido por
 \family typewriter
 Diameter
 \family default
@@ -6188,11 +6188,11 @@ nto y el conjunto de test son muy parecidos.
  Esto se debe a que se está usando un modelo de regresión con una única
  variable, que difícilmente puede sobreajustar.
  En los apartados siguientes veremos un comportamiento bastante distinto,
- en el que 
+ en el que
 \begin_inset Formula $\overline{MSE}_{tst}$
 \end_inset
 
- será claramente mayor a 
+ será claramente mayor a
 \begin_inset Formula $\overline{MSE}_{tra}$
 \end_inset
 
@@ -6201,11 +6201,11 @@ nto y el conjunto de test son muy parecidos.
 
 \begin_layout Standard
 Las cinco variables más relevantes en este problema son, en orden según
- el valor de 
+ el valor de
 \begin_inset Formula $\overline{MSE}_{tst}$
 \end_inset
 
-: 
+:
 \family typewriter
 \size footnotesize
 Shell_weight
@@ -6217,19 +6217,19 @@ Shell_weight
  Diameter
 \family default
 \size default
-, 
+,
 \family typewriter
 \size footnotesize
 Length
 \family default
 \size default
-, 
+,
 \family typewriter
 \size footnotesize
 Height
 \family default
 \size default
- y 
+ y
 \family typewriter
 \size footnotesize
 Whole_weight
@@ -7152,7 +7152,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot15.png
+	filename img/Rplot15.png
 	lyxscale 10
 	width 80col%
 
@@ -7202,7 +7202,7 @@ reference "fig:abalone-rings-scatterplot"
 
 , podemos intuir que existen no linealidades entre algunas de las variables
  de entrada y la de salida.
- En concreto, es claro que todos los pesos (variables 
+ En concreto, es claro que todos los pesos (variables
 \family typewriter
 _weight
 \family default
@@ -7276,7 +7276,7 @@ Regressor
 \begin_inset Text
 
 \begin_layout Plain Layout
-Correlation with 
+Correlation with
 \family typewriter
 Rings
 \end_layout
@@ -7625,7 +7625,7 @@ Cross validation
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.421 
+0.421
 \end_layout
 
 \end_inset
@@ -7715,7 +7715,7 @@ Cross validation
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.477 
+0.477
 \end_layout
 
 \end_inset
@@ -7805,7 +7805,7 @@ Cross validation
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.492 
+0.492
 \end_layout
 
 \end_inset
@@ -7895,7 +7895,7 @@ Cross validation
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.510 
+0.510
 \end_layout
 
 \end_inset
@@ -8450,7 +8450,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot16.png
+	filename img/Rplot16.png
 	lyxscale 10
 	width 80col%
 
@@ -8505,31 +8505,31 @@ SELECCIONAR 5 VARIABLES!!
 \begin_layout Standard
 A continuación, se ha realizado la regresión lineal teniendo en cuenta todos
  los regresores, sin contemplar interacciones entre ellos.
- Se ha visto, mediante 
+ Se ha visto, mediante
 \emph on
-backward selection 
+backward selection
 \emph default
-que los regresores que producen mejor resultados son 
+que los regresores que producen mejor resultados son
 \family typewriter
 Diameter
 \family default
-, 
+,
 \family typewriter
 Height
 \family default
- y todos los 
+ y todos los
 \family typewriter
 _weight
 \family default
-, pudiéndose descartar 
+, pudiéndose descartar
 \family typewriter
 Sex
 \family default
- y 
+ y
 \family typewriter
 Length
 \family default
- por presentar un 
+ por presentar un
 \begin_inset Formula $p$
 \end_inset
 
@@ -8883,11 +8883,11 @@ poly(Length, 2) + poly(Height, 2) + poly(Whole_weight, 2) + poly(Shucked_weight,
 \size footnotesize
 Modelo lineal usando polinomios de segundo grado para tratar de corregir
  las no linealidades.
- A pesar de que 
+ A pesar de que
 \begin_inset Formula $R^{2}$
 \end_inset
 
- aumenta y 
+ aumenta y
 \begin_inset Formula $\overline{MSE}_{tra}$
 \end_inset
 
@@ -8959,11 +8959,11 @@ poly(Length, 3) + poly(Height, 3) + poly(Whole_weight, 3) + poly(Shucked_weight,
 Modelo lineal usando polinomios de grado 3 para tratar de corregir las no
  linealidades.
  El modelo produce overfitting de forma clara, lo cuál es evidente si miramos
- la diferencia entre 
+ la diferencia entre
 \begin_inset Formula $\overline{MSE}_{tra}$
 \end_inset
 
- y 
+ y
 \begin_inset Formula $\overline{MSE}_{tst}$
 \end_inset
 
@@ -9034,7 +9034,7 @@ Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight *
 Modelo lineal teniendo en cuenta las interacciones entre algunas de las
  variables.
  El modelo produce mejores resultados que los anteriores, al reducir el
- 
+
 \begin_inset Formula $\overline{MSE}_{tst}$
 \end_inset
 
@@ -9087,7 +9087,7 @@ Así mismo, se ha realizado la regresión múltiple tratando de corregir las
 
 \begin_layout Standard
 En este apartado hemos visto modelos que ajustaban muy bien el conjunto
- de 
+ de
 \emph on
 training
 \emph default
@@ -9096,12 +9096,12 @@ training
  una gran varianza, perdiendo de vista las principales relaciones que hay
  entre las distintas variables.
  Esto hace que se sobreajusten al ruido presente en conjunto de datos, lo
- que se conoce como 
+ que se conoce como
 \emph on
 overfitting
 \emph default
 , y es el efecto contrario al producido por el sesgo que produce tener en
- cuenta pocas variables de entrada, o 
+ cuenta pocas variables de entrada, o
 \emph on
 underfitting
 \emph default
@@ -9109,26 +9109,26 @@ underfitting
 \end_layout
 
 \begin_layout Standard
-De entre los modelos estudiados, el que mejor resultados ha dado es 
+De entre los modelos estudiados, el que mejor resultados ha dado es
 \family typewriter
 \size footnotesize
 Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight *
  Shell_weight.3
 \family default
 \size default
-, que considera combinaciones lineales de 
+, que considera combinaciones lineales de
 \family typewriter
 \size footnotesize
 Length
 \family default
 \size default
- y 
+ y
 \family typewriter
 \size footnotesize
 Height
 \family default
 \size default
-, y las interacciones entre el logaritmo de 
+, y las interacciones entre el logaritmo de
 \family typewriter
 \size footnotesize
 Whole_weight
@@ -9153,7 +9153,7 @@ Whole_weight
 \family default
 \size default
 .
- Este modelo ha producido un error 
+ Este modelo ha producido un error
 \begin_inset Formula $\overline{MSE}_{tst}=4.50$
 \end_inset
 
@@ -9228,7 +9228,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot03.eps
+	filename img/Rplot03.eps
 	width 80col%
 
 \end_inset
@@ -9278,7 +9278,7 @@ Intro de k-NN
 \begin_layout Standard
 El algoritmo de los k vecinos más cercanos (k-Nearest Neighbours) puede
  usarse para regresión.
- 
+
 \begin_inset Note Note
 status open
 
@@ -9300,7 +9300,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot17.png
+	filename img/Rplot17.png
 	lyxscale 10
 	width 90col%
 
@@ -11522,22 +11522,22 @@ reference "fig:abalone-knn-simple-regressions"
 
 , podría parecer que k-NN con un único regresor ofrece resultados muy superiores
  a los del modelo lineal.
- No obstante, los resultados son muy dependientes del parámetro 
+ No obstante, los resultados son muy dependientes del parámetro
 \begin_inset Formula $k$
 \end_inset
 
 .
- Para el ejemplo de las gráficas, con 
+ Para el ejemplo de las gráficas, con
 \begin_inset Formula $k=7$
 \end_inset
 
 , el ajuste lineal tiene, en realidad, mejores resultados.
  En general, parece que k-NN produce más sobreajuste, al tener una diferencia
- mayor entre 
+ mayor entre
 \begin_inset Formula $\overline{MSE}{}_{tra}$
 \end_inset
 
- y 
+ y
 \begin_inset Formula $\overline{MSE}{}_{tst}$
 \end_inset
 
@@ -11556,13 +11556,13 @@ reference "fig:abalone-knn-models-comparison-VS-k+overfitting"
 .
  En la misma, puede observarse que la diferencia del error en los sets de
  entrenamiento y de test es muy elevada, en especial con valores pequeños
- de 
+ de
 \begin_inset Formula $k$
 \end_inset
 
 .
  Esta diferencia se acentúa en el caso de tener un modelo más complejo,
- en cuyo caso un valor bajo de 
+ en cuyo caso un valor bajo de
 \begin_inset Formula $k$
 \end_inset
 
@@ -11592,7 +11592,7 @@ reference "fig:abalone-knn-models-comparison-VS-k"
  muestra una comparación del error cuadrático medio en modelos complejos.
  Al igual que ocurría en la regresión lineal, el modelo que tiene en cuenta
  las interacciones produce resultados muy buenos, siendo el que produce
- los mejores resultados con 
+ los mejores resultados con
 \begin_inset Formula $k>6$
 \end_inset
 
@@ -11621,7 +11621,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot54.eps
+	filename img/Rplot54.eps
 	width 60text%
 
 \end_inset
@@ -11632,7 +11632,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot55.eps
+	filename img/Rplot55.eps
 	width 60text%
 
 \end_inset
@@ -11651,16 +11651,16 @@ name "fig:abalone-knn-models-comparison-VS-k+overfitting"
 \end_inset
 
 Comparación de diferentes modelos construidos con k-NN, cambiando el valor
- de 
+ de
 \begin_inset Formula $k$
 \end_inset
 
 .
- Los errores representados son 
+ Los errores representados son
 \begin_inset Formula $\overline{MSE}{}_{tra}$
 \end_inset
 
- y 
+ y
 \begin_inset Formula $\overline{MSE}{}_{tst}$
 \end_inset
 
@@ -12464,7 +12464,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot24.eps
+	filename img/Rplot24.eps
 	width 100text%
 
 \end_inset
@@ -12483,12 +12483,12 @@ name "fig:abalone-knn-models-comparison-VS-k"
 \end_inset
 
 Comparación de diferentes modelos construidos con k-NN, cambiando el valor
- de 
+ de
 \begin_inset Formula $k$
 \end_inset
 
 .
- El error representado es 
+ El error representado es
 \begin_inset Formula $\overline{MSE}{}_{tst}$
 \end_inset
 
@@ -12525,14 +12525,14 @@ Comparación entre los modelos lineales y regresiones con k-NN para el caso
 \end_layout
 
 \begin_layout Standard
-A la vista de las tablas 
+A la vista de las tablas
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:abalone-multiple-lineal-regressions"
 
 \end_inset
 
- y 
+ y
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:abalone-knn-multiple-regressions"
@@ -12540,12 +12540,12 @@ reference "tab:abalone-knn-multiple-regressions"
 \end_inset
 
 , es posible decir que ambos métodos arrojan unos resultados parecidos,
- siempre que 
+ siempre que
 \begin_inset Formula $k$
 \end_inset
 
  sea lo suficientemente elevado.
- La figura 
+ La figura
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparación-puntos-kNN-LM"
@@ -12563,7 +12563,7 @@ reference "fig:Comparación-puntos-kNN-LM"
 \end_layout
 
 \begin_layout Standard
-La figura 
+La figura
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Comparación-distro-kNN-LM"
@@ -12575,25 +12575,25 @@ reference "fig:Comparación-distro-kNN-LM"
  Como puede observarse, las dos distribuciones son muy parecidas.
  Esto induce a pensar que ninguno de los dos métodos usados sea mejor que
  el otro.
- En efecto, un test de 
+ En efecto, un test de
 \emph on
 Kolmogorov–Smirnov
 \emph default
- no puede negar, con un 
+ no puede negar, con un
 \begin_inset Formula $p$
 \end_inset
 
 -value de 0.77, que las muestras hayan sido extraídas de la misma distribución.
- El test de 
+ El test de
 \emph on
 Mann–Whitney–Wilcoxon
 \emph default
- arroja un resultado parecido, con un 
+ arroja un resultado parecido, con un
 \begin_inset Formula $p$
 \end_inset
 
 -value de 0.61.
- 
+
 \end_layout
 
 \begin_layout Standard
@@ -12605,7 +12605,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot28.eps
+	filename img/Rplot28.eps
 	width 80text%
 
 \end_inset
@@ -12624,14 +12624,14 @@ name "fig:Comparación-puntos-kNN-LM"
 \end_inset
 
 Comparación entre 20 datos reales sus predicciones con k-NN y LM para el
- modelo 
+ modelo
 \family typewriter
 \size footnotesize
 Rings ~ Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight
  * Shell_weight.3
 \family default
 \size default
- 
+
 \begin_inset Formula $(k=7)$
 \end_inset
 
@@ -12659,7 +12659,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot29.svg
+	filename img/Rplot29.svg
 	width 80text%
 
 \end_inset
@@ -12678,14 +12678,14 @@ name "fig:Comparación-distro-kNN-LM"
 \end_inset
 
 Comparación entre las distribuciones de error cuadrático con k-NN y LM para
- el modelo 
+ el modelo
 \family typewriter
 \size footnotesize
 Rings ~ Length + Height + Whole_weight.log * Shucked_weight.log * Viscera_weight
  * Shell_weight.3
 \family default
 \size default
- 
+
 \begin_inset Formula $(k=7)$
 \end_inset
 
@@ -12740,11 +12740,11 @@ Para comparar si existen diferencias significativas entre los modelos lineal,
 En primer lugar, se ha estudiado si existe diferencia significativa entre
  el modelo lineal y k-NN.
  Para ello, se ha realizado un test de los rangos con signo de Wilcoxon.
- El resultado, con un 
+ El resultado, con un
 \begin_inset Formula $p$
 \end_inset
 
--value de 
+-value de
 \begin_inset Formula $0.77$
 \end_inset
 
@@ -12840,7 +12840,7 @@ R-
 \begin_layout Plain Layout
 Resultado de aplicar el test de los rangos con signo de Wilcoxon a los resultado
 s de MSE estudiados.
- 
+
 \end_layout
 
 \end_inset
@@ -12856,16 +12856,16 @@ s de MSE estudiados.
 \begin_layout Standard
 Para comprobar si alguno de los tres métodos produce resultados significativamen
 te superiores al resto se ha procedido a realizar un test de Friedman.
- En este caso, el 
+ En este caso, el
 \begin_inset Formula $p$
 \end_inset
 
--value obtenido es de 
+-value obtenido es de
 \begin_inset Formula $0.0338$
 \end_inset
 
 , por lo que podemos negar la hipótesis nula que mantiene que no existe
- diferencia significativa entre el 
+ diferencia significativa entre el
 \begin_inset Formula $\overline{MSE}_{tst}$
 \end_inset
 
@@ -12884,18 +12884,18 @@ reference "tab:regression-comparison-wilcoxon"
 \end_inset
 
 .
- Observando estos resultados, podemos decir que sólo existe un 
+ Observando estos resultados, podemos decir que sólo existe un
 \begin_inset Formula $33\%$
 \end_inset
 
  de significancia de que LM produzca resultados distintos a k-NN.
- En cambio, tenemos un 
+ En cambio, tenemos un
 \begin_inset Formula $84\%$
 \end_inset
 
  de significancia de que M5' produzca resultados distintos tanto a LM como
  a k-NN.
- 
+
 \begin_inset Note Note
 status collapsed
 
@@ -13140,7 +13140,7 @@ name "tab:regression-comparison-wilcoxon"
 \end_inset
 
 Resultados del test de los rangos con signo de Wilcoxon por parejas, aplicado
- a los resultados de 
+ a los resultados de
 \emph on
 Accuracy
 \emph default
@@ -13158,7 +13158,7 @@ Accuracy
 \end_layout
 
 \begin_layout Section
-Clasificación sobre el conjunto de datos 
+Clasificación sobre el conjunto de datos
 \emph on
 tae
 \end_layout
@@ -13187,7 +13187,7 @@ Clasificación mediante el algoritmo k-NN
 \end_layout
 
 \begin_layout Standard
-El algoritmo de los 
+El algoritmo de los
 \begin_inset Formula $k$
 \end_inset
 
@@ -13201,21 +13201,21 @@ El algoritmo de los
 
 \begin_layout Standard
 Cabe destacar que, puesto que el principio básico de k-NN supone medir la
- distancia de cada elemento a sus 
+ distancia de cada elemento a sus
 \begin_inset Formula $k$
 \end_inset
 
  elementos más cercanos, es necesario definir una métrica y es conveniente
  que las variables de entrada estén normalizadas.
  Por este motivo, el primer paso en el procesamiento de los datos será normaliza
-r la variable 
+r la variable
 \family typewriter
 Size
 \family default
 .
  Adicionalmente, podría procederse a normalizar el resto de variables, que,
  a pesar de ser categóricas, tienen un valor numérico.
- Esto supone prescindir de la transformación en 
+ Esto supone prescindir de la transformación en
 \emph on
 factors
 \emph default
@@ -13233,7 +13233,7 @@ status collapsed
 \begin_layout Plain Layout
 La normalización llevada a cabo se rige por la función
 \emph on
- 
+
 \begin_inset Formula $f(x)=\frac{x-\min(x)}{\max(x)-\min(x)}$
 \end_inset
 
@@ -13441,7 +13441,7 @@ Factores de normalización aplicados a las variables de entrada antes del
 \begin_layout Standard
 Con el fin de obtener los mejores resultados posibles, se ha realizado un
  estudio del rendimiento del algoritmo k-NN con distintos valores del parámetro
- 
+
 \emph on
 
 \begin_inset Formula $k$
@@ -13450,7 +13450,7 @@ Con el fin de obtener los mejores resultados posibles, se ha realizado un
 
 \emph default
 .
- Para ello, se ha calculado el 
+ Para ello, se ha calculado el
 \emph on
 Accuracy
 \emph default
@@ -13459,7 +13459,7 @@ Accuracy
 \emph on
 k-fold
 \emph default
-) con distintos valores de 
+) con distintos valores de
 \begin_inset Formula $k$
 \end_inset
 
@@ -13468,7 +13468,7 @@ k-fold
  variabilidad de los resultados producida por la componente aleatoria del
  algoritmo k-NN.
  Por último, se ha calculado la media de los resultados de Accuracy observados,
- seleccionando la cifra más alta junto al valor de 
+ seleccionando la cifra más alta junto al valor de
 \begin_inset Formula $k$
 \end_inset
 
@@ -13484,24 +13484,24 @@ reference "fig:tae-knn-accuracy-plot"
 
 \end_inset
 
-, se han conseguido para 
+, se han conseguido para
 \begin_inset Formula $k=1$
 \end_inset
 
-, llegando a un 
+, llegando a un
 \emph on
 Accuracy
 \emph default
- medio de 
+ medio de
 \begin_inset Formula $0.621$
 \end_inset
 
-, con una desviación típica de 
+, con una desviación típica de
 \begin_inset Formula $0.009$
 \end_inset
 
 .
- Podría pensarse que 
+ Podría pensarse que
 \begin_inset Formula $k=1$
 \end_inset
 
@@ -13519,7 +13519,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot53.eps
+	filename img/Rplot53.eps
 	width 60text%
 
 \end_inset
@@ -13541,7 +13541,7 @@ name "fig:tae-knn-accuracy-plot"
 
 Accuracy
 \emph default
- obtenido con el algoritmo k-NN en función del parámetro 
+ obtenido con el algoritmo k-NN en función del parámetro
 \begin_inset Formula $k$
 \end_inset
 
@@ -13590,7 +13590,7 @@ LDA asume que los datos han sido extraídos de una distribución normal.
  normal.
  Para comprobar si las variables de entrada siguen una distribución normal,
  se ha procedido a realizar un test de Shapiro-Wilk sobre las mismas.
- La tabla 
+ La tabla
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:tae-normality-test"
@@ -13600,7 +13600,7 @@ reference "tab:tae-normality-test"
  muestra los resultados de este test, que deben interpretarse del siguiente
  modo: para cada una de las variables, debe rechazarse la hipótesis de que
  los datos provengan de una distribución normal.
- La figura 
+ La figura
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:tae-QQplots"
@@ -13610,7 +13610,7 @@ reference "fig:tae-QQplots"
  muestra los gráficos Q-Q de estas variables, pudiendo comprobarse que no
  se ajustan a la distribución normal.
  Tal vez las variables Size e Instructor tengan una forma más parecida a
- la recta esperada, cosa que también se pone de manifiesto en el 
+ la recta esperada, cosa que también se pone de manifiesto en el
 \begin_inset Formula $p$
 \end_inset
 
@@ -13844,12 +13844,12 @@ name "tab:tae-normality-test"
 \end_inset
 
 Test de normalidad Shapiro-Wilk aplicado a las variables de entrada del
- conjunto de datos 
+ conjunto de datos
 \emph on
 tae
 \emph default
 .
- 
+
 \end_layout
 
 \end_inset
@@ -13875,7 +13875,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot51.eps
+	filename img/Rplot51.eps
 	width 80text%
 
 \end_inset
@@ -13973,16 +13973,16 @@ Comparación de los algoritmos
 
 \begin_layout Standard
 Con el objetivo de mejorar los resultados de la clasificación, se ha probado
- a poner en una matriz de ocurrencias las variables 
+ a poner en una matriz de ocurrencias las variables
 \family typewriter
-Instructor 
+Instructor
 \family default
-y 
+y
 \family typewriter
 Course
 \family default
 .
- A pesar de ello, las medidas de 
+ A pesar de ello, las medidas de
 \emph on
 Accuracy
 \emph default
@@ -13993,11 +13993,11 @@ Accuracy
 \end_layout
 
 \begin_layout Standard
-Los resultados obtenidos, tanto de 
+Los resultados obtenidos, tanto de
 \emph on
 Accuracy
 \emph default
- como 
+ como
 \emph on
 Kappa
 \emph default
@@ -14029,23 +14029,23 @@ reference "fig:tae-classification-comparison"
  Para comprobar que efectivamente existen diferencias significativas entre
  los resultados de los distintos algoritmos, se han aplicado el test de
  Friedman y el test de los rangos con signo de Wilcoxon sobre la variable
- 
+
 \emph on
 Accuracy
 \emph default
 .
- En el primero de los tests, se ha obtenido un 
+ En el primero de los tests, se ha obtenido un
 \begin_inset Formula $p$
 \end_inset
 
 -value de 2.56e-05, comprobándose que al menos uno de los métodos funciona
  mejor que el resto.
  El test de Wilcoxon revela que, en realidad, existen diferencias significativas
- entre los resultados de 
+ entre los resultados de
 \emph on
 Accuracy
 \emph default
- de los tres algoritmos, al arrojar los 
+ de los tres algoritmos, al arrojar los
 \begin_inset Formula $p$
 \end_inset
 
@@ -15681,7 +15681,7 @@ name "tab:tae-classification-comparison"
 
 \end_inset
 
-Comparación de los algoritmos de clasificación para cada uno de los 
+Comparación de los algoritmos de clasificación para cada uno de los
 \emph on
 k-folds
 \emph default
@@ -15707,7 +15707,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename src/analysis/img/Rplot52.eps
+	filename img/Rplot52.eps
 	width 60text%
 
 \end_inset
@@ -15920,7 +15920,7 @@ Código fuente: Análisis de datos
 \end_layout
 
 \begin_layout Subsection
-Código fuente usado en la visualización de los datos 
+Código fuente usado en la visualización de los datos
 \emph on
 abalone
 \end_layout
@@ -15946,7 +15946,7 @@ End Of File 'abalone.R'
 \end_layout
 
 \begin_layout Subsection
-Código fuente usado en la visualización de los datos 
+Código fuente usado en la visualización de los datos
 \emph on
 tae
 \end_layout
